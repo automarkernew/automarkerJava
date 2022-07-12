@@ -1,0 +1,16 @@
+2022-07-07 00:46:48.947 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893672107278336. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:21:59.433 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893689815629824. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:23:41.554 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893690671267840. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:25:42.402 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893691686289408. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:26:55.749 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893692298657792. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:30:12.203 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893693951213568. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:31:28.032 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893694588747776. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:33:12.391 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893695461163008. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:35:01.607 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893696375521280. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:36:31.486 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893697130496000. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:38:26.289 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893698095185920. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 01:39:37.838 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893698690777088. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 02:54:59.628 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893736624062464. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-07 02:55:48.793 [http-nio-8081-exec-2] WARN  com.tagging.exception.GlobalExceptionHandler - 重复注册
+2022-07-07 02:56:28.838 [http-nio-8081-exec-4] WARN  com.tagging.exception.GlobalExceptionHandler - 重复注册
+2022-07-07 14:18:46.985 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:894080783482880. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]

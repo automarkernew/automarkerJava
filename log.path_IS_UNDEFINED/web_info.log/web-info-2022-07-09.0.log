@@ -1,0 +1,141 @@
+2022-07-09 22:30:34.575 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 1.8.0_291 on pankoo with PID 15136 (C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker\target\classes started by Administrator in C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker)
+2022-07-09 22:30:34.585 [main] INFO  com.tagging.DemoApplication - The following profiles are active: dev
+2022-07-09 22:30:37.470 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-09 22:30:37.485 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-09 22:30:37.485 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-09 22:30:37.486 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-09 22:30:37.647 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-09 22:30:37.647 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2943 ms
+2022-07-09 22:30:39.021 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-09 22:30:40.295 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-09 22:30:40.838 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=192.168.85.1,port=1657377040773-18684,type=2,launchDate=Sat Jul 09 22:30:40 CST 2022,created=<null>,modified=<null>]
+2022-07-09 22:30:40.853 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-09 22:30:40.856 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-09 22:30:40.860 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-09 22:30:40.860 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377040. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-09 22:30:40.880 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377049. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-09 22:30:40.883 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-09 22:30:41.674 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-09 22:30:43.080 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-09 22:30:43.082 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-09 22:30:43.083 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-09 22:30:43.083 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-09 22:30:43.297 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-09 22:30:43.363 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-09 22:30:43.384 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 10.411 seconds (JVM running for 11.899)
+2022-07-09 22:33:51.752 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-09 22:33:51.752 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-09 22:33:51.765 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 12 ms
+2022-07-09 22:36:34.302 [http-nio-8081-exec-5] INFO  com.tagging.service.YoloTaggingService - 已完成
+2022-07-09 22:40:42.902 [http-nio-8081-exec-6] INFO  com.tagging.service.VideoInformationService - cmd /c cd D:/pythonVirtualEnv37 && python C:/Users/Administrator/Desktop/newyigou0326/YOLOV5_new/video2img.py C:/code/projects/am/minio/video/895777849212929/002copy.avi C:/code/projects/am/minio/motimg/895777849212929/
+2022-07-09 22:40:44.053 [http-nio-8081-exec-6] INFO  com.tagging.service.VideoInformationService - cmd /c cd D:/pythonVirtualEnv37 && python C:/Users/Administrator/Desktop/newyigou0326/YOLOV5_new/video2img.py C:/code/projects/am/minio/video/895777849212929/002copy.avi C:/code/projects/am/minio/img/895777849212929/
+2022-07-09 22:41:06.005 [http-nio-8081-exec-6] INFO  com.tagging.service.YoloTaggingService - cmd /c cd D:/pythonVirtualEnv37 && start python C:/Users/Administrator/Desktop/newyigou0326/YOLOV5_new/detect.py --source C:/code/projects/am/minio/video/895777849212929/002copy.avi --project C:/code/projects/am/minio/txt/895777849212929/
+2022-07-09 22:43:37.972 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:1023, cursor:512, rest:511
+2022-07-09 22:43:37.975 [RingBuffer-Padding-Worker-1] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377049. RingBuffer [bufferSize=1024, tail=1023, cursor=512, paddingThreshold=512]
+2022-07-09 22:43:37.977 [RingBuffer-Padding-Worker-1] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377054. RingBuffer [bufferSize=1024, tail=1535, cursor=512, paddingThreshold=512]
+2022-07-09 22:43:42.362 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:1535, cursor:1024, rest:511
+2022-07-09 22:43:42.364 [RingBuffer-Padding-Worker-2] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377054. RingBuffer [bufferSize=1024, tail=1535, cursor=1024, paddingThreshold=512]
+2022-07-09 22:43:42.367 [RingBuffer-Padding-Worker-2] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377059. RingBuffer [bufferSize=1024, tail=2047, cursor=1024, paddingThreshold=512]
+2022-07-09 22:43:46.522 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:2047, cursor:1536, rest:511
+2022-07-09 22:43:46.523 [RingBuffer-Padding-Worker-3] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377059. RingBuffer [bufferSize=1024, tail=2047, cursor=1536, paddingThreshold=512]
+2022-07-09 22:43:46.525 [RingBuffer-Padding-Worker-3] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377064. RingBuffer [bufferSize=1024, tail=2559, cursor=1536, paddingThreshold=512]
+2022-07-09 22:43:51.761 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:2559, cursor:2048, rest:511
+2022-07-09 22:43:51.761 [RingBuffer-Padding-Worker-4] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377064. RingBuffer [bufferSize=1024, tail=2559, cursor=2048, paddingThreshold=512]
+2022-07-09 22:43:51.762 [RingBuffer-Padding-Worker-4] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377069. RingBuffer [bufferSize=1024, tail=3071, cursor=2048, paddingThreshold=512]
+2022-07-09 22:43:56.122 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:3071, cursor:2560, rest:511
+2022-07-09 22:43:56.124 [RingBuffer-Padding-Worker-5] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377069. RingBuffer [bufferSize=1024, tail=3071, cursor=2560, paddingThreshold=512]
+2022-07-09 22:43:56.125 [RingBuffer-Padding-Worker-5] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377074. RingBuffer [bufferSize=1024, tail=3583, cursor=2560, paddingThreshold=512]
+2022-07-09 22:44:01.036 [http-nio-8081-exec-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:3583, cursor:3072, rest:511
+2022-07-09 22:44:01.037 [RingBuffer-Padding-Worker-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377074. RingBuffer [bufferSize=1024, tail=3583, cursor=3072, paddingThreshold=512]
+2022-07-09 22:44:01.039 [RingBuffer-Padding-Worker-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377079. RingBuffer [bufferSize=1024, tail=4095, cursor=3072, paddingThreshold=512]
+2022-07-09 22:44:53.604 [http-nio-8081-exec-8] INFO  com.tagging.service.VisibleTaggingService - cmd /c cd D:/pythonVirtualEnv37 && python C:/Users/Administrator/Desktop/newyigou0326/YOLOV5_new/tracking_paint.py C:/code/projects/am/minio/video/895777849212929/002copy.avi C:/code/projects/am/minio/mottxt/895777849212929/mot.txt C:/code/projects/am/minio/motimg/895777849212929/
+2022-07-09 22:45:15.804 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:4095, cursor:3584, rest:511
+2022-07-09 22:45:15.805 [RingBuffer-Padding-Worker-7] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377079. RingBuffer [bufferSize=1024, tail=4095, cursor=3584, paddingThreshold=512]
+2022-07-09 22:45:15.806 [RingBuffer-Padding-Worker-7] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377084. RingBuffer [bufferSize=1024, tail=4607, cursor=3584, paddingThreshold=512]
+2022-07-09 22:45:26.750 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:4607, cursor:4096, rest:511
+2022-07-09 22:45:26.750 [RingBuffer-Padding-Worker-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377084. RingBuffer [bufferSize=1024, tail=4607, cursor=4096, paddingThreshold=512]
+2022-07-09 22:45:26.751 [RingBuffer-Padding-Worker-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377089. RingBuffer [bufferSize=1024, tail=5119, cursor=4096, paddingThreshold=512]
+2022-07-09 22:45:37.961 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:5119, cursor:4608, rest:511
+2022-07-09 22:45:37.962 [RingBuffer-Padding-Worker-1] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377089. RingBuffer [bufferSize=1024, tail=5119, cursor=4608, paddingThreshold=512]
+2022-07-09 22:45:37.962 [RingBuffer-Padding-Worker-1] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377094. RingBuffer [bufferSize=1024, tail=5631, cursor=4608, paddingThreshold=512]
+2022-07-09 22:45:48.714 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:5631, cursor:5120, rest:511
+2022-07-09 22:45:48.714 [RingBuffer-Padding-Worker-2] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377094. RingBuffer [bufferSize=1024, tail=5631, cursor=5120, paddingThreshold=512]
+2022-07-09 22:45:48.715 [RingBuffer-Padding-Worker-2] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377099. RingBuffer [bufferSize=1024, tail=6143, cursor=5120, paddingThreshold=512]
+2022-07-09 22:45:59.280 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:6143, cursor:5632, rest:511
+2022-07-09 22:45:59.281 [RingBuffer-Padding-Worker-3] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377099. RingBuffer [bufferSize=1024, tail=6143, cursor=5632, paddingThreshold=512]
+2022-07-09 22:45:59.283 [RingBuffer-Padding-Worker-3] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377104. RingBuffer [bufferSize=1024, tail=6655, cursor=5632, paddingThreshold=512]
+2022-07-09 22:46:09.789 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:6655, cursor:6144, rest:511
+2022-07-09 22:46:09.789 [RingBuffer-Padding-Worker-4] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377104. RingBuffer [bufferSize=1024, tail=6655, cursor=6144, paddingThreshold=512]
+2022-07-09 22:46:09.792 [RingBuffer-Padding-Worker-4] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377109. RingBuffer [bufferSize=1024, tail=7167, cursor=6144, paddingThreshold=512]
+2022-07-09 22:46:20.389 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:7167, cursor:6656, rest:511
+2022-07-09 22:46:20.390 [RingBuffer-Padding-Worker-5] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377109. RingBuffer [bufferSize=1024, tail=7167, cursor=6656, paddingThreshold=512]
+2022-07-09 22:46:20.391 [RingBuffer-Padding-Worker-5] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377114. RingBuffer [bufferSize=1024, tail=7679, cursor=6656, paddingThreshold=512]
+2022-07-09 22:46:32.337 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:7679, cursor:7168, rest:511
+2022-07-09 22:46:32.337 [RingBuffer-Padding-Worker-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377114. RingBuffer [bufferSize=1024, tail=7679, cursor=7168, paddingThreshold=512]
+2022-07-09 22:46:32.338 [RingBuffer-Padding-Worker-6] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377119. RingBuffer [bufferSize=1024, tail=8191, cursor=7168, paddingThreshold=512]
+2022-07-09 22:46:42.953 [http-nio-8081-exec-8] INFO  com.github.wujun234.uid.buffer.RingBuffer - Reach the padding threshold:512. tail:8191, cursor:7680, rest:511
+2022-07-09 22:46:42.953 [RingBuffer-Padding-Worker-7] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657377119. RingBuffer [bufferSize=1024, tail=8191, cursor=7680, paddingThreshold=512]
+2022-07-09 22:46:42.954 [RingBuffer-Padding-Worker-7] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657377124. RingBuffer [bufferSize=1024, tail=8703, cursor=7680, paddingThreshold=512]
+2022-07-09 22:47:37.709 [http-nio-8081-exec-1] INFO  com.tagging.service.YoloTaggingService - 保存成功
+2022-07-09 22:59:10.412 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-09 22:59:10.417 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-09 22:59:10.435 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-09 23:19:43.836 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 1.8.0_291 on pankoo with PID 14584 (C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker\target\classes started by Administrator in C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker)
+2022-07-09 23:19:43.841 [main] INFO  com.tagging.DemoApplication - The following profiles are active: dev
+2022-07-09 23:19:47.245 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-09 23:19:47.271 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-09 23:19:47.273 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-09 23:19:47.274 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-09 23:19:47.598 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-09 23:19:47.599 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3615 ms
+2022-07-09 23:19:50.122 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-09 23:19:51.287 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-09 23:19:52.210 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=192.168.85.1,port=1657379992096-90958,type=2,launchDate=Sat Jul 09 23:19:51 CST 2022,created=<null>,modified=<null>]
+2022-07-09 23:19:52.229 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-09 23:19:52.233 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-09 23:19:52.244 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-09 23:19:52.250 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657379992. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-09 23:19:52.256 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657380001. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-09 23:19:52.257 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-09 23:19:53.372 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-09 23:19:55.252 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-09 23:19:55.253 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-09 23:19:55.255 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-09 23:19:55.255 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-09 23:19:55.468 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-09 23:19:55.518 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-09 23:19:55.536 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 13.287 seconds (JVM running for 14.249)
+2022-07-09 23:20:02.648 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-09 23:20:02.651 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-09 23:20:02.657 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-07-09 23:21:28.071 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-09 23:21:28.074 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-09 23:21:28.086 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-09 23:22:38.689 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 1.8.0_291 on pankoo with PID 1476 (C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker\target\classes started by Administrator in C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker)
+2022-07-09 23:22:38.695 [main] INFO  com.tagging.DemoApplication - The following profiles are active: dev
+2022-07-09 23:22:42.381 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-09 23:22:42.401 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-09 23:22:42.403 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-09 23:22:42.403 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-09 23:22:42.634 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-09 23:22:42.634 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3690 ms
+2022-07-09 23:22:44.473 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-09 23:22:45.673 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-09 23:22:46.370 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=192.168.85.1,port=1657380166313-63045,type=2,launchDate=Sat Jul 09 23:22:45 CST 2022,created=<null>,modified=<null>]
+2022-07-09 23:22:46.384 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-09 23:22:46.388 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-09 23:22:46.392 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-09 23:22:46.392 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657380166. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-09 23:22:46.395 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657380175. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-09 23:22:46.395 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-09 23:22:47.175 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-09 23:22:48.584 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-09 23:22:48.586 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-09 23:22:48.587 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-09 23:22:48.588 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-09 23:22:49.102 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-09 23:22:49.455 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-09 23:22:49.595 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 12.419 seconds (JVM running for 13.773)
+2022-07-09 23:22:52.118 [http-nio-8081-exec-10] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-09 23:22:52.119 [http-nio-8081-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-09 23:22:52.120 [http-nio-8081-exec-10] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms

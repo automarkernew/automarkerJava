@@ -1,0 +1,56 @@
+2022-07-06 22:20:44.476 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 1.8.0_291 on pankoo with PID 7664 (C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker\target\classes started by Administrator in C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker)
+2022-07-06 22:20:44.481 [main] INFO  com.tagging.DemoApplication - The following profiles are active: dev
+2022-07-06 22:20:50.260 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-06 22:20:50.281 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-06 22:20:50.282 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-06 22:20:50.283 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-06 22:20:50.670 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-06 22:20:50.671 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 6071 ms
+2022-07-06 22:20:52.230 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-06 22:20:53.406 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-06 22:20:54.050 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=192.168.85.1,port=1657117253951-41294,type=2,launchDate=Wed Jul 06 22:20:53 CST 2022,created=<null>,modified=<null>]
+2022-07-06 22:20:54.072 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-06 22:20:54.076 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-06 22:20:54.080 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-06 22:20:54.081 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657117254. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-06 22:20:54.084 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657117263. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-06 22:20:54.086 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-06 22:20:54.776 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-06 22:20:56.021 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-06 22:20:56.022 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-06 22:20:56.023 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-06 22:20:56.024 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-06 22:20:56.202 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-06 22:20:56.289 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-06 22:20:56.312 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 13.12 seconds (JVM running for 14.698)
+2022-07-06 22:21:14.709 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-06 22:21:14.710 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-06 22:21:14.712 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-06 22:38:15.260 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-06 22:38:15.270 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-06 22:38:15.285 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-06 22:38:39.328 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 1.8.0_291 on pankoo with PID 2932 (C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker\target\classes started by Administrator in C:\Users\Administrator\Desktop\yigouNewest0706\auto_data_marker)
+2022-07-06 22:38:39.343 [main] INFO  com.tagging.DemoApplication - The following profiles are active: dev
+2022-07-06 22:38:43.388 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-06 22:38:43.404 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-06 22:38:43.405 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-06 22:38:43.405 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-06 22:38:43.569 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-06 22:38:43.569 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4091 ms
+2022-07-06 22:38:45.101 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-06 22:38:46.287 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-06 22:38:46.871 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=192.168.85.1,port=1657118326790-22692,type=2,launchDate=Wed Jul 06 22:38:46 CST 2022,created=<null>,modified=<null>]
+2022-07-06 22:38:46.885 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-06 22:38:46.888 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-06 22:38:46.892 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-06 22:38:46.894 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657118326. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-06 22:38:46.897 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657118335. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-06 22:38:46.897 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-06 22:38:47.576 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-06 22:38:49.004 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-06 22:38:49.009 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-06 22:38:49.012 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-06 22:38:49.013 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-06 22:38:49.357 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-06 22:38:49.394 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-06 22:38:49.409 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 11.508 seconds (JVM running for 12.483)

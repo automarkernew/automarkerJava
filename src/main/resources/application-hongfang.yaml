@@ -1,0 +1,50 @@
+# 服务器端口配置
+server:
+  port: 8081
+# 数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    username: root
+    password: Root123456
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 1024MB
+# 配置mybatis
+mybatis:
+  type-aliases-package: com.tagging.entity # entity 位置
+  mapper-locations: mapper/*.xml # xml mapper 位置
+  configuration: # 其他配置
+    map-underscore-to-camel-case: true
+
+# mapper
+mapper:
+  mappers: com.tagging.dao.base.BaseDao # base mapper
+  identity: MYSQL
+
+# log
+logging:
+  config: classpath:logback-spring.xml
+
+# minio
+minio:
+  url: http://localhost:9000
+  accessKey: minioadmin
+  secretKey: minioadmin
+  localUrl: /home/hdtx/code/minio_server
+  videoBucket: video
+  mottxtBucket: mottxt
+  imgBuket: img
+  motingBuket: motimg
+  txtBuket: txt
+
+# yolo5
+# local是yolo算法地址
+# execute是相应的python解释器地址
+yolo5:
+  localUrl: /home/hdtx/code/auto_data_marker/YOLOV5_new
+  executeUrl: /home/hdtx/anaconda3/envs/YOLOV5/bin
+  pythonName: ./python3.9
+

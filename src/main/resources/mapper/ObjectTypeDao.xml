@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tagging.dao.mapper.ObjectTypeDao">
+
+    <select id="queryAllType" resultType="com.tagging.dto.ObjectType.QueryAllTypeRsp">
+        select OBJECT_TYPE as objectType
+        from target_type_t
+        where DATA_STATUS = "A"
+        group by OBJECT_TYPE
+    </select>
+    
+    <select id="queryModelByType" resultType="com.tagging.dto.ObjectType.ObjectTypeModelRsp">
+        select OBJECT_MODEL as objectModel
+        from target_type_t
+        where DATA_STATUS = "A" and OBJECT_TYPE = #{objectType}
+    </select>
+    
+    <select id="getTrackTypeId" resultType="String">
+        select TRACK_TYPE_ID as trackTypeId
+        FROM target_type_t
+        where DATA_STATUS = "A" and OBJECT_TYPE = #{objectType}
+        group by TRACK_TYPE_ID
+    </select>
+
+    <select id="queryMaxTargetId" resultType="integer">
+        select MAX(cast(TARGET_TYPE_ID as SIGNED))
+        from target_type_t
+        where DATA_STATUS = "A"
+    </select>
+
+    <select id="queryMaxTrackId" resultType="integer">
+        select MAX(cast(TRACK_TYPE_ID as SIGNED))
+        from target_type_t
+        where DATA_STATUS = "A"
+    </select>
+
+    <select id="queryIs" resultType="com.tagging.entity.TargetTypeT">
+        select *
+        from target_type_t
+        where DATA_STATUS = "A"
+        <if test="objectType != null and objectType != '' ">
+        AND OBJECT_TYPE = #{objectType}
+        </if>
+        <if test="objectModel != null and objectModel != '' ">
+        AND OBJECT_MODEL = #{objectModel}
+        </if>
+    </select>
+
+    <select id="queryTypeByTrackTypeId" resultType="com.tagging.dto.targetTrackT.QueryTypeByVideoIdRsp">
+        select distinct OBJECT_TYPE AS objectType
+        from target_type_t
+        where DATA_STATUS = "A" AND TRACK_TYPE_ID = #{trackTypeId}
+    </select>
+
+    <select id="queryTrackTypeIdByObjectType" resultType="com.tagging.entity.TargetTypeT">
+        select *
+        from target_type_t
+        where DATA_STATUS = "A" AND OBJECT_TYPE = #{objectType}
+    </select>
+
+    <select id="queryLinkId" resultType="com.tagging.dto.ObjectType.QueryLinkIdRsp">
+        select LINK_ID as linkId
+        from target_type_t
+        where DATA_STATUS = "A"
+        GROUP BY LINK_ID
+    </select>
+
+    <select id="queryByLinkId" resultType="com.tagging.dto.ObjectType.LinkIdRsp">
+        select OBJECT_TYPE AS objectType, OBJECT_MODEL as objectModel
+        from target_type_t
+        where DATA_STATUS = "A" AND LINK_ID = #{linkId}
+    </select>
+    <select id="queryTypes" resultType="com.tagging.entity.TargetTypeT">
+        select *
+        from target_type_t
+        where DATA_STATUS = "A"
+        <if test="objectType != null and objectType != '' ">
+            AND OBJECT_TYPE = #{objectType}
+        </if>
+        <if test="objectModel != null and objectModel != '' ">
+            AND OBJECT_MODEL = #{objectModel}
+        </if>
+    </select>
+</mapper>

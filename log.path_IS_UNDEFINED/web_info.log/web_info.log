@@ -1,0 +1,503 @@
+2022-07-12 13:36:49.220 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 2146 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 13:36:49.223 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 13:36:50.085 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 13:36:50.091 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 13:36:50.091 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 13:36:50.091 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 13:36:50.131 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 13:36:50.131 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 843 ms
+2022-07-12 13:36:50.583 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 13:36:56.663 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 13:36:56.684 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 14:24:45.609 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 21419 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 14:24:45.611 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 14:24:48.775 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 14:24:48.807 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 14:24:48.808 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 14:24:48.808 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 14:24:48.921 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 14:24:48.921 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3085 ms
+2022-07-12 14:24:49.927 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 14:24:56.051 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 14:24:56.063 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 15:25:05.290 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 7854 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 15:25:05.291 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 15:25:07.243 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 15:25:07.255 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:25:07.256 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 15:25:07.256 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 15:25:07.316 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 15:25:07.317 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1916 ms
+2022-07-12 15:25:07.911 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 15:25:14.002 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 15:25:14.030 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 15:26:48.107 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 8643 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 15:26:48.117 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 15:26:49.024 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 15:26:49.032 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:26:49.032 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 15:26:49.033 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 15:26:49.082 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 15:26:49.083 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 900 ms
+2022-07-12 15:26:49.629 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 15:26:50.714 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 15:26:50.889 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 15:26:50.893 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 15:26:50.895 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 15:26:50.902 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 15:30:01.100 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 10175 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 15:30:01.110 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 15:30:02.095 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 15:30:02.100 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:30:02.101 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 15:30:02.101 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 15:30:02.138 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 15:30:02.139 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 988 ms
+2022-07-12 15:30:02.589 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 15:30:03.301 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 15:30:03.418 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 15:30:03.431 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 15:30:03.432 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 15:30:03.440 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 15:30:47.610 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 10460 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 15:30:47.612 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 15:30:49.007 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 15:30:49.015 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:30:49.015 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 15:30:49.015 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 15:30:49.087 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 15:30:49.088 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1371 ms
+2022-07-12 15:30:49.832 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 15:30:50.076 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 15:30:50.171 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 15:30:50.175 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 15:30:50.177 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2022-07-12 15:30:50.186 [main] INFO  o.s.b.a.l.ConditionEvaluationReportLoggingListener - 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-07-12 15:59:26.257 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 21226 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 15:59:26.276 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 15:59:33.570 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 15:59:33.582 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:59:33.583 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 15:59:33.583 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 15:59:33.887 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 15:59:33.888 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 7015 ms
+2022-07-12 15:59:36.714 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 15:59:37.818 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 15:59:37.896 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657612777844-79518,type=2,launchDate=Tue Jul 12 15:59:37 CST 2022,created=<null>,modified=<null>]
+2022-07-12 15:59:37.939 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 15:59:37.940 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 15:59:37.941 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 15:59:37.941 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657612777. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 15:59:37.957 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657612786. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 15:59:37.958 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 15:59:38.542 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 15:59:38.947 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 15:59:38.948 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 15:59:38.949 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 15:59:38.949 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 15:59:39.094 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 15:59:39.114 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 15:59:39.123 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 17.843 seconds (JVM running for 27.597)
+2022-07-12 16:26:29.474 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 16:26:29.497 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 16:26:29.500 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-07-12 16:35:10.418 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 2972 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 16:35:10.431 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 16:35:13.732 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 16:35:13.739 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 16:35:13.740 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 16:35:13.740 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 16:35:13.899 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 16:35:13.899 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3252 ms
+2022-07-12 16:35:14.808 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 16:35:15.589 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 16:35:15.783 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657614915606-18402,type=2,launchDate=Tue Jul 12 16:35:15 CST 2022,created=<null>,modified=<null>]
+2022-07-12 16:35:15.860 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 16:35:15.863 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 16:35:15.866 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 16:35:15.868 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657614915. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 16:35:15.881 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657614924. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 16:35:15.882 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 16:35:16.407 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 16:35:16.723 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 16:35:16.724 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 16:35:16.724 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 16:35:16.724 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 16:35:16.931 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 16:35:16.951 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 16:35:16.960 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 9.029 seconds (JVM running for 16.081)
+2022-07-12 16:36:08.917 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 16:36:08.917 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 16:36:08.918 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 16:43:21.909 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 16:43:21.913 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 16:43:21.921 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 16:43:23.893 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 5927 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 16:43:23.895 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 16:43:24.505 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 16:43:24.510 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 16:43:24.510 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 16:43:24.510 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 16:43:24.560 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 16:43:24.560 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 627 ms
+2022-07-12 16:43:24.952 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 16:43:25.097 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 16:43:25.125 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657615405103-19794,type=2,launchDate=Tue Jul 12 16:43:25 CST 2022,created=<null>,modified=<null>]
+2022-07-12 16:43:25.162 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 16:43:25.163 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 16:43:25.165 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 16:43:25.165 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657615405. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 16:43:25.166 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657615414. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 16:43:25.166 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 16:43:25.394 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 16:43:25.644 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 16:43:25.645 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 16:43:25.645 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 16:43:25.645 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 16:43:25.723 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 16:43:25.732 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 16:43:25.739 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.258 seconds (JVM running for 2.674)
+2022-07-12 16:58:15.195 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 16:58:15.230 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 16:58:15.234 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2022-07-12 17:01:18.912 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:01:18.915 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:01:18.950 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:01:33.396 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 12399 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:01:33.397 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:01:36.274 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:01:36.281 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:01:36.281 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:01:36.281 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:01:36.375 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:01:36.375 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2793 ms
+2022-07-12 17:01:37.276 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:01:38.383 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:01:38.592 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657616498408-96077,type=2,launchDate=Tue Jul 12 17:01:38 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:01:38.698 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:01:38.701 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:01:38.705 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:01:38.705 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657616498. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:01:38.724 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657616507. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:01:38.725 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:01:39.198 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:01:39.485 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:01:39.486 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:01:39.486 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:01:39.486 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:01:39.603 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:01:39.624 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:01:39.633 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 8.597 seconds (JVM running for 14.893)
+2022-07-12 17:01:48.541 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:01:48.541 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:01:48.542 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:01:48.931 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /usr/bin && python3 /home/hdtx/code/YOLOV5_new-main/video2img.py /home/hdtx/code/minio_server/video/897786568507392/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897786568507392/
+2022-07-12 17:01:49.418 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /usr/bin && python3 /home/hdtx/code/YOLOV5_new-main/video2img.py /home/hdtx/code/minio_server/video/897786568507392/5zhen.mp4 /home/hdtx/code/minio_server/img/897786568507392/
+2022-07-12 17:04:29.138 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:04:29.140 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:04:29.144 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:04:31.247 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 13398 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:04:31.248 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:04:31.883 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:04:31.888 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:04:31.889 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:04:31.889 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:04:31.929 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:04:31.929 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 649 ms
+2022-07-12 17:04:32.364 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:04:32.590 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:04:32.673 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657616672598-20843,type=2,launchDate=Tue Jul 12 17:04:32 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:04:32.713 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:04:32.714 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:04:32.714 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:04:32.715 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657616672. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:04:32.716 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657616681. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:04:32.716 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:04:33.026 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:04:33.304 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:04:33.305 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:04:33.305 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:04:33.305 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:04:33.403 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:04:33.417 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:04:33.425 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.57 seconds (JVM running for 2.943)
+2022-07-12 17:04:42.530 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:04:42.530 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:04:42.531 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:04:42.777 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /usr/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897788028125184/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897788028125184/
+2022-07-12 17:04:43.741 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /usr/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897788028125184/5zhen.mp4 /home/hdtx/code/minio_server/img/897788028125184/
+2022-07-12 17:10:20.981 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:10:21.000 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:10:21.017 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:10:23.546 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 15427 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:10:23.547 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:10:24.267 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:10:24.272 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:10:24.272 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:10:24.273 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:10:24.310 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:10:24.311 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 723 ms
+2022-07-12 17:10:24.703 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:10:24.902 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:10:24.943 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657617024912-35263,type=2,launchDate=Tue Jul 12 17:10:24 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:10:24.995 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:10:24.996 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:10:24.997 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:10:24.997 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657617024. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:10:24.998 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657617033. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:10:24.998 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:10:25.290 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:10:25.546 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:10:25.547 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:10:25.547 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:10:25.547 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:10:25.633 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:10:25.643 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:10:25.651 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.389 seconds (JVM running for 3.008)
+2022-07-12 17:10:32.358 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:10:32.358 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:10:32.359 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:10:32.693 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5 && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897790980915200/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897790980915200/
+2022-07-12 17:10:33.627 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5 && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897790980915200/5zhen.mp4 /home/hdtx/code/minio_server/img/897790980915200/
+2022-07-12 17:12:25.413 [http-nio-8081-exec-5] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5 && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897790980915201/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897790980915201/
+2022-07-12 17:12:26.497 [http-nio-8081-exec-5] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5 && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897790980915201/5zhen.mp4 /home/hdtx/code/minio_server/img/897790980915201/
+2022-07-12 17:18:06.503 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:18:06.528 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:18:06.742 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:18:25.328 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 18589 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:18:25.332 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:18:29.886 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:18:29.896 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:18:29.896 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:18:29.896 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:18:30.034 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:18:30.034 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 4489 ms
+2022-07-12 17:18:30.982 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:18:32.616 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:18:32.963 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657617512650-97786,type=2,launchDate=Tue Jul 12 17:18:32 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:18:33.110 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:18:33.111 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:18:33.112 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:18:33.113 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657617513. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:18:33.125 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657617522. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:18:33.125 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:18:33.764 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:18:34.460 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:18:34.461 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:18:34.462 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:18:34.462 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:18:34.642 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:18:34.659 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:18:34.672 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 12.279 seconds (JVM running for 20.371)
+2022-07-12 17:18:44.354 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:18:44.355 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:18:44.356 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:18:46.044 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897795082944512/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897795082944512/
+2022-07-12 17:18:48.849 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897795082944512/5zhen.mp4 /home/hdtx/code/minio_server/img/897795082944512/
+2022-07-12 17:21:31.684 [http-nio-8081-exec-5] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897795082944513/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897795082944513/
+2022-07-12 17:21:35.426 [http-nio-8081-exec-5] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897795082944513/5zhen.mp4 /home/hdtx/code/minio_server/img/897795082944513/
+2022-07-12 17:37:53.768 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:37:53.803 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:37:53.883 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:38:09.921 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 24477 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:38:09.926 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:38:15.884 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:38:15.890 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:38:15.891 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:38:15.891 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:38:16.005 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:38:16.005 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 5938 ms
+2022-07-12 17:38:16.961 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:38:18.045 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:38:18.213 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657618698072-24872,type=2,launchDate=Tue Jul 12 17:38:18 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:38:18.283 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:38:18.284 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:38:18.285 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:38:18.286 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657618698. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:38:18.304 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657618707. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:38:18.305 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:38:18.781 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:38:19.070 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:38:19.070 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:38:19.070 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:38:19.070 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:38:19.192 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:38:19.218 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:38:19.247 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 11.616 seconds (JVM running for 18.631)
+2022-07-12 17:38:24.281 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:38:24.281 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:38:24.282 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:38:25.387 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897805023444992/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897805023444992/
+2022-07-12 17:38:26.753 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897805023444992/5zhen.mp4 /home/hdtx/code/minio_server/img/897805023444992/
+2022-07-12 17:47:48.442 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:47:48.454 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:47:48.464 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:47:53.421 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 27074 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:47:53.423 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:47:54.069 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:47:54.074 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:47:54.075 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:47:54.075 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:47:54.119 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:47:54.119 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 648 ms
+2022-07-12 17:47:54.676 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:47:54.858 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:47:54.890 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657619274865-96516,type=2,launchDate=Tue Jul 12 17:47:54 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:47:54.945 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:47:54.949 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:47:54.952 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:47:54.953 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657619274. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:47:54.956 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657619283. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:47:54.957 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:47:55.242 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:47:55.541 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:47:55.542 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:47:55.542 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:47:55.542 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:47:55.631 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:47:55.640 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:47:55.648 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.613 seconds (JVM running for 3.095)
+2022-07-12 17:48:46.263 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:48:46.264 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:48:46.268 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:48:48.281 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 27504 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:48:48.283 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:48:48.903 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:48:48.908 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:48:48.909 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:48:48.909 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:48:48.949 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:48:48.949 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 628 ms
+2022-07-12 17:48:49.359 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:48:49.533 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:48:49.565 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657619329542-60338,type=2,launchDate=Tue Jul 12 17:48:49 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:48:49.624 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:48:49.627 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:48:49.631 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:48:49.631 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657619329. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:48:49.634 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657619338. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:48:49.634 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:48:49.922 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:48:50.179 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:48:50.179 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:48:50.179 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:48:50.179 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:48:50.267 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:48:50.277 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:48:50.284 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.392 seconds (JVM running for 2.851)
+2022-07-12 17:49:09.913 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:49:09.913 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:49:09.914 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:49:10.176 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9/home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897810316656640/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897810316656640/
+2022-07-12 17:49:10.198 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9/home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897810316656640/5zhen.mp4 /home/hdtx/code/minio_server/img/897810316656640/
+2022-07-12 17:52:03.807 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:52:03.809 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:52:03.813 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:52:08.637 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 28434 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:52:08.638 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:52:09.310 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:52:09.316 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:52:09.316 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:52:09.316 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:52:09.363 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:52:09.363 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 691 ms
+2022-07-12 17:52:09.924 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:52:10.104 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:52:10.140 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657619530112-21385,type=2,launchDate=Tue Jul 12 17:52:10 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:52:10.199 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:52:10.202 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:52:10.206 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:52:10.207 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657619530. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:52:10.211 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657619539. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:52:10.211 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:52:10.512 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:52:10.763 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:52:10.764 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:52:10.764 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:52:10.764 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:52:10.858 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:52:10.870 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:52:10.878 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.668 seconds (JVM running for 3.119)
+2022-07-12 17:52:12.551 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:52:12.551 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:52:12.552 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:52:12.824 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9/home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897812002766848/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897812002766848/
+2022-07-12 17:52:12.833 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9/home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897812002766848/5zhen.mp4 /home/hdtx/code/minio_server/img/897812002766848/
+2022-07-12 17:53:51.099 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:53:51.101 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:53:51.108 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:53:54.839 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 29184 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:53:54.842 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:53:55.524 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:53:55.529 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:53:55.529 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:53:55.529 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:53:55.566 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:53:55.567 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 678 ms
+2022-07-12 17:53:56.008 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:53:56.208 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:53:56.250 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657619636218-54972,type=2,launchDate=Tue Jul 12 17:53:56 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:53:56.304 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:53:56.307 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:53:56.311 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:53:56.312 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657619636. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:53:56.314 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657619645. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:53:56.314 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:53:56.651 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:53:56.927 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:53:56.928 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:53:56.928 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:53:56.928 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:53:57.022 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:53:57.031 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:53:57.039 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.538 seconds (JVM running for 2.905)
+2022-07-12 17:53:58.607 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:53:58.607 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:53:58.608 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:53:58.864 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897812891959296/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897812891959296/
+2022-07-12 17:53:58.873 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && python3.9/home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897812891959296/5zhen.mp4 /home/hdtx/code/minio_server/img/897812891959296/
+2022-07-12 17:55:00.749 [SpringContextShutdownHook] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:55:00.749 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2022-07-12 17:55:00.754 [SpringContextShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2022-07-12 17:55:04.498 [main] INFO  com.tagging.DemoApplication - Starting DemoApplication using Java 18.0.1.1 on hdtx-OptiPlex-7040 with PID 29696 (/home/hdtx/code/auto_data_marker/auto_data_marker/target/classes started by hdtx in /home/hdtx/code/auto_data_marker/auto_data_marker)
+2022-07-12 17:55:04.499 [main] INFO  com.tagging.DemoApplication - The following profiles are active: hongfang
+2022-07-12 17:55:05.149 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8081 (http)
+2022-07-12 17:55:05.155 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:55:05.156 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2022-07-12 17:55:05.156 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.39]
+2022-07-12 17:55:05.200 [main] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2022-07-12 17:55:05.201 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 659 ms
+2022-07-12 17:55:05.733 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2022-07-12 17:55:05.977 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2022-07-12 17:55:06.029 [main] INFO  c.g.wujun234.uid.worker.DisposableWorkerIdAssigner - Add worker node:WorkerNodeEntity[id=0,hostName=172.17.0.1,port=1657619705990-8636,type=2,launchDate=Tue Jul 12 17:55:05 CST 2022,created=<null>,modified=<null>]
+2022-07-12 17:55:06.077 [main] INFO  com.github.wujun234.uid.impl.DefaultUidGenerator - Initialized bits(1, 30, 16, 7) for workerID:0
+2022-07-12 17:55:06.079 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized ring buffer size:1024, paddingFactor:50
+2022-07-12 17:55:06.080 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized BufferPaddingExecutor. Using schdule:false, interval:null
+2022-07-12 17:55:06.080 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - Ready to padding buffer lastSecond:1657619706. RingBuffer [bufferSize=1024, tail=-1, cursor=-1, paddingThreshold=512]
+2022-07-12 17:55:06.082 [main] INFO  com.github.wujun234.uid.buffer.RingBuffer - End to padding buffer lastSecond:1657619715. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-12 17:55:06.082 [main] INFO  com.github.wujun234.uid.impl.CachedUidGenerator - Initialized RingBuffer successfully.
+2022-07-12 17:55:06.394 [main] INFO  o.s.scheduling.concurrent.ThreadPoolTaskExecutor - Initializing ExecutorService 'applicationTaskExecutor'
+2022-07-12 17:55:06.682 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.util.MsUtil CLASS_CACHE cache.
+2022-07-12 17:55:06.683 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.genid.GenIdUtil CACHE cache.
+2022-07-12 17:55:06.683 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear tk.mybatis.mapper.version.VersionUtil CACHE cache.
+2022-07-12 17:55:06.683 [main] INFO  t.mybatis.mapper.autoconfigure.MapperCacheDisabler - Clear EntityHelper entityTableMap cache.
+2022-07-12 17:55:06.778 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8081"]
+2022-07-12 17:55:06.788 [main] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8081 (http) with context path ''
+2022-07-12 17:55:06.797 [main] INFO  com.tagging.DemoApplication - Started DemoApplication in 2.627 seconds (JVM running for 3.047)
+2022-07-12 17:55:08.494 [http-nio-8081-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-07-12 17:55:08.494 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2022-07-12 17:55:08.496 [http-nio-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2022-07-12 17:55:08.742 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && ./python3.9 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897813479161856/5zhen.mp4 /home/hdtx/code/minio_server/motimg/897813479161856/
+2022-07-12 17:55:08.936 [http-nio-8081-exec-2] INFO  com.tagging.service.VideoInformationService - cd /home/hdtx/anaconda3/envs/YOLOV5/bin && ./python3.9 /home/hdtx/code/auto_data_marker/YOLOV5_new/video2img.py /home/hdtx/code/minio_server/video/897813479161856/5zhen.mp4 /home/hdtx/code/minio_server/img/897813479161856/

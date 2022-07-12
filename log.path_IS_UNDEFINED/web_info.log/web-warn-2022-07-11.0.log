@@ -1,0 +1,5 @@
+2022-07-11 11:05:28.286 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:896882595332096. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-11 14:17:05.453 [http-nio-8081-exec-5] WARN  com.tagging.exception.GlobalExceptionHandler - 此视频进行过标注
+2022-07-11 14:18:24.700 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:896979701858304. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
+2022-07-11 14:21:02.007 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s652ms258µs900ns).
+2022-07-11 15:11:38.020 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:897006495072256. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
