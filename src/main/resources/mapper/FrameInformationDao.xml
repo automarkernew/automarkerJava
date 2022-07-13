@@ -65,7 +65,7 @@
     <select id="queryAllTrackId" resultType="com.tagging.dto.visibleTagging.VisibleTaggingMotQueryAllTrackIdRsp">
         SELECT TRACK_ID as trackId
         FROM frame_information
-        where DATA_STATUS = 'A' AND FRAME_TYPE = 1
+        where DATA_STATUS = 'A' AND FRAME_TYPE = 1 AND VIDEO_ID = #{videoId}
         GROUP BY TRACK_ID
         ORDER BY TRACK_ID + 0
     </select>

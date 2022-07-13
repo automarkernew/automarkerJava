@@ -254,9 +254,8 @@
     <select id="queryTrackNumbers" resultType="long">
         select count(*)
         from target_track_t
-        WHERE DATA_STATUS = "A"
         <if test="videoId != null and videoId != '' ">
-            AND VIDEO_ID = #{videoId}
+            WHERE VIDEO_ID = #{videoId}
         </if>
     </select>
 

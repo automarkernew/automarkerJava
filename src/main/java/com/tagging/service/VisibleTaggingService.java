@@ -109,15 +109,15 @@ public class VisibleTaggingService {
 
         String command1 = "cd "
                 + executeUrl
-                + " && " + pythonName  +  " "  +  " " + yoloUrl + "/mot.py "
-                + minioLocalUrl + videoInformation.getVideoFileUrl() + ' '
+                + " && " + pythonName  +  " "  + yoloUrl + "/mot.py "
+                + minioLocalUrl +"/" + videoInformation.getVideoFileUrl() + ' '
                 + txtPath + ' '
                 + txtMotPath;
 
         String command2 = "cd "
                 + executeUrl
                 + " && " + pythonName  +  " " + yoloUrl + "/tracking_paint.py "
-                + minioLocalUrl + videoInformation.getVideoFileUrl() + ' '
+                + minioLocalUrl + '/' + videoInformation.getVideoFileUrl() + ' '
                 + txtMotPath + "mot.txt "
                 + imgMotPath;
 
@@ -282,11 +282,12 @@ public class VisibleTaggingService {
 
         String encoding="GBK";
         Integer number = numberOfFiles(minioLocalUrl + "/mottxt/" + req.getVideoId());
+        System.out.println(number);
 
         String command = "cd "
                 + executeUrl
                 + " && " + pythonName  +  " " + yoloUrl + "/object_tracking.py "
-                + minioLocalUrl + videoInformation.getVideoFileUrl() + ' '
+                + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + ' '
                 + minioLocalUrl + "/mottxt/" + req.getVideoId() + "/" + ' '
                 + req.getLeftUpperCornerAbscissa() + ' '
                 + req.getLeftUpperCornerOrdinate() + ' '
@@ -348,7 +349,7 @@ public class VisibleTaggingService {
                 //同步更新appearFrame
                 TargetTrackT targetTrack = targetTrackDao.queryByVideoIdAndTrackId(videoInformation.getVideoId(), String.valueOf(number));
                 targetTrackT.setAppearFrame(targetTrack.getAppearFrame() + message[0] + ' ');
-                targetTrackDao.updateByPrimaryKeySelective(targetTrack);
+                targetTrackDao.updateByPrimaryKeySelective(targetTrackT);
 
                 frameInformation.setLeftUpperCornerAbscissa(message[1]);
                 frameInformation.setLeftUpperCornerOrdinate(message[2]);

@@ -25,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import java.io.*;
+import java.nio.file.Paths;
 import java.util.List;
 
 import static com.tagging.utils.FileUtils.consumeInputStream;
@@ -168,10 +169,15 @@ public class VideoInformationService {
         if (files != null) {
             try {
                 for(MultipartFile file : files) {
-                    String fileUrl = minioUtils.putObject(minioBucketName, file, videoInformation.getVideoId() + "/" + file.getOriginalFilename(),
-                            file.getContentType());
+//                    String fileUrl = minioUtils.putObject(minioBucketName, file, videoInformation.getVideoId() + "/" + file.getOriginalFilename(),
+//                            file.getContentType());
+                    File dest = new File(String.valueOf(Paths.get(minioLocalUrl, minioBucketName, videoInformation.getVideoId(), file.getOriginalFilename())));
+                    if (!dest.exists()) {
+                        dest.mkdirs();
+                    }
+                    file.transferTo(dest);
                     videoInformation.setVideoName(file.getOriginalFilename());
-                    videoInformation.setVideoFileUrl(fileUrl);
+                    videoInformation.setVideoFileUrl(String.valueOf(Paths.get(minioBucketName, videoInformation.getVideoId(), file.getOriginalFilename())));
                 }
 
                 //若为高光谱,转换为伪彩色
@@ -181,7 +187,7 @@ public class VideoInformationService {
                     String command = "cd "
                             + executeUrl
                             + " && " + pythonName  +  " " + yoloUrl + "/his.py "
-                            + minioLocalUrl + videoInformation.getVideoFileUrl() + " "
+                            + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " "
                             + minioLocalUrl + videoUrl + "/";
 
                     log.info(command);
@@ -204,7 +210,7 @@ public class VideoInformationService {
                     String command = "cd "
                             + executeUrl
                             + " && " + pythonName + " " + yoloUrl + "/video2img.py "
-                            + minioLocalUrl + videoInformation.getVideoFileUrl() + " "
+                            + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " "
                             + minioLocalUrl + imgUrl + '/';
 
                     log.info(command);
@@ -225,7 +231,7 @@ public class VideoInformationService {
                 String command = "cd "
                         + executeUrl
                         + " && " + pythonName + " " + yoloUrl + "/video2img.py "
-                        + minioLocalUrl + videoInformation.getVideoFileUrl() + " "
+                        + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " "
                         + minioLocalUrl + imgUrl + '/';
                 log.info(command);
 

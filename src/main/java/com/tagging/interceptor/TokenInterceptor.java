@@ -48,7 +48,7 @@ public class TokenInterceptor implements HandlerInterceptor {
         if (token == null || token.equals("") || token.equals("undefined")) {
             //未登录
             logger.error("未登录tokenError" + token + "-path:" + path);
-            throw new CMSException(ResultCodeEnum.NO_TOKEN);
+//            throw new CMSException(ResultCodeEnum.NO_TOKEN);
         }
         try {
             SystemConfigParam systemConfigParam = systemConfigParamDao.selectByPrimaryKey("00000000000001");

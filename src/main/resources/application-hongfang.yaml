@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: Root123456
   servlet:
@@ -46,5 +46,5 @@ minio:
 yolo5:
   localUrl: /home/hdtx/code/auto_data_marker/YOLOV5_new
   executeUrl: /home/hdtx/anaconda3/envs/YOLOV5/bin
-  pythonName: ./python3.9
+  pythonName: ./python
 

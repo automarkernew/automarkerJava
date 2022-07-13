@@ -74,7 +74,7 @@ public class YoloTaggingService {
         String command = "cd "
                 + executeUrl
                 + " && " + pythonName  +  " " + yoloUrl + "/detect.py --source "
-                + minioLocalUrl + videoInformation.getVideoFileUrl() + " --project "
+                + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " --project "
                 + txtUrl  + "/";
 
         log.info(command);
