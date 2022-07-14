@@ -110,9 +110,10 @@ public class LoginService {
         registerData.setUserSalt(salt);
 
         // 加 if 判断重复注册
-        User temp = new User();
-        temp.setUserName(userName);
-        List<User> tempList = userDao.select(temp);
+//        User temp = new User();
+//        temp.setUserName(userName);
+//        List<User> tempList = userDao.select(temp);
+        List<User> tempList = userDao.queryByUserName(userName);
         if(!tempList.isEmpty()){
             throw new CMSException(410,"重复注册");
         }
