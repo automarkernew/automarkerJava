@@ -1,4 +1,0 @@
-2022-07-06 22:20:54.083 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893598673403904. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
-2022-07-06 22:32:30.187 [http-nio-8081-exec-10] WARN  com.tagging.exception.GlobalExceptionHandler - 无token
-2022-07-06 22:35:56.939 [http-nio-8081-exec-8] WARN  com.tagging.exception.GlobalExceptionHandler - token异常!请重新登陆
-2022-07-06 22:38:46.896 [main] WARN  com.github.wujun234.uid.buffer.RingBuffer - Rejected putting buffer for uid:893607665991680. RingBuffer [bufferSize=1024, tail=1023, cursor=-1, paddingThreshold=512]
