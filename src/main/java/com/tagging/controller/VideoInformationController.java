@@ -74,4 +74,10 @@ public class VideoInformationController {
         List<VideoInformationQueryShootPlaceRsp> videoInformationQueryShootPlaceRsps = videoInformationService.queryShootPlace();
         return R.ok().data("VideoInformationQueryShootPlaceRsp", videoInformationQueryShootPlaceRsps);
     }
+
+    @RequestMapping("queryVideoLength")
+    public R queryVideoLength(@RequestBody Map<String, Object> req){
+        VideoLengthReq videoLengthReq = JSON.parseObject(JSON.toJSONString(req.get("VideoLengthReq")), VideoLengthReq.class);
+        return R.ok().data("VideoLengthRsp", videoInformationService.queryVideoLength(videoLengthReq));
+    }
 }

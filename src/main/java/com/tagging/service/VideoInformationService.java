@@ -17,6 +17,7 @@ import com.tagging.utils.DataUtils;
 import com.tagging.utils.MinioUtils;
 //import jdk.vm.ci.code.site.Mark;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.*;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.tagging.utils.FileUtils.consumeInputStream;
@@ -187,12 +189,12 @@ public class VideoInformationService {
                     String command = "cd "
                             + executeUrl
                             + " && " + pythonName  +  " " + yoloUrl + "/his.py "
-                            + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " "
+                            + minioLocalUrl + "/" + videoInformation.getVideoFileUrl().replace(".hdr","") + ".hdr" + " "
                             + minioLocalUrl + videoUrl + "/";
 
                     log.info(command);
 
-                    videoInformation.setVideoFileUrl(videoUrl + "/rgb.jpg");
+                    videoInformation.setVideoFileUrl(videoUrl + "/1.jpg");
 
                     //运行py文件
                     Process p = null;
@@ -210,7 +212,7 @@ public class VideoInformationService {
                     String command = "cd "
                             + executeUrl
                             + " && " + pythonName + " " + yoloUrl + "/video2img.py "
-                            + minioLocalUrl + "/" + videoInformation.getVideoFileUrl() + " "
+                            + minioLocalUrl + videoInformation.getVideoFileUrl() + " "
                             + minioLocalUrl + imgUrl + '/';
 
                     log.info(command);
@@ -258,7 +260,8 @@ public class VideoInformationService {
                         String[] message = lineTxt.split(" ");
                         videoInformation.setHeight(message[1]);
                         videoInformation.setWidth(message[2]);
-                        videoInformation.setLength(message[0]);
+                        videoInformation.setLength(message[3]);
+                        System.out.println("======"+ Arrays.toString(message));
                     }
                     read.close();
                 } else {
@@ -290,5 +293,18 @@ public class VideoInformationService {
 
     public List<VideoInformationQueryShootPlaceRsp> queryShootPlace(){
         return videoInformationDao.queryShootPlace();
+    }
+
+    public VideoLengthRsp queryVideoLength(VideoLengthReq req){
+        try{
+            VideoLengthRsp rsp = videoInformationDao.queryVideoLength(req.getVideoId());
+            if (rsp == null){
+                throw new CMSException(404, "VideoId can not find");
+            }
+            return rsp;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
     }
 }

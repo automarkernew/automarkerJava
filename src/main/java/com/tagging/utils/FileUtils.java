@@ -84,10 +84,10 @@ public class FileUtils {
             if (file.isFile()) {
                 //如果file是文件则复制  srcDir -->D:\\PanDownload  拼接  D:\\PanDownload\\XXXX文件
                 //    targetDir-->E:\\PanDownload 拼接 E:\\PanDownload\\XXXX文件
-                copyFile(new File(srcDir+"\\"+file.getName()), new File(targetDir+"\\"+file.getName()));
+                copyFile(new File(srcDir+"/"+file.getName()), new File(targetDir+"/"+file.getName()));
             }else{
                 //不是继续调用该方法判断，使用递归实现
-                copyDir(new File(srcDir+"\\"+file.getName()), new File(targetDir+"\\"+file.getName()));
+                copyDir(new File(srcDir+"/"+file.getName()), new File(targetDir+"/"+file.getName()));
             }
         }
     }

@@ -128,4 +128,11 @@
         FROM video_information
         WHERE DATA_STATUS = 'A'
     </select>
+
+    <select id = "queryVideoLength" resultType = "com.tagging.dto.videoInformation.VideoLengthRsp">
+        SELECT LENGTH as length
+        FROM video_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId}
+    </select>
+
 </mapper>

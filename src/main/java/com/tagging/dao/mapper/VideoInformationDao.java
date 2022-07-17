@@ -3,6 +3,7 @@ package com.tagging.dao.mapper;
 import com.tagging.dao.base.BaseDao;
 import com.tagging.dto.videoInformation.VideoInformationQueryRsp;
 import com.tagging.dto.videoInformation.VideoInformationQueryShootPlaceRsp;
+import com.tagging.dto.videoInformation.VideoLengthRsp;
 import com.tagging.entity.VideoInformation;
 import org.apache.ibatis.annotations.Param;
 
@@ -49,5 +50,7 @@ public interface VideoInformationDao extends BaseDao<VideoInformation> {
     public VideoInformation queryByVideoId(@Param("videoId") String videoId);
 
     public List<VideoInformationQueryShootPlaceRsp> queryShootPlace();
+
+    public VideoLengthRsp queryVideoLength(@Param("videoId") String videoId);
 
 }
