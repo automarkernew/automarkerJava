@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tagging.dao.mapper.TargetTrackDao">
+
+    <select id="getRelatedInformation" resultType="map">
+        select distinct
+        s.video_id,
+        s.video_name,
+        t1.track_id
+        from
+        video_information s inner join target_track_t t1 inner join target_type_t t2
+        where
+        s.data_status = "A"
+        and
+        s.video_id = t1.video_id
+        and
+        t1.target_type_id = t2.target_type_id
+        and
+        t2.link_id = #{linkId, jdbcType = VARCHAR}
+
+        ;
+    </select>
+
+    <select id="getImageUrl" resultType="String">
+        select appear_frame
+        from
+        target_track_t
+        where
+        data_status = "A"
+        and
+        video_id = #{videoId}
+        and
+        track_id = #{trackId}
+    </select>
+
+    <select id="targetTrackGetTrack" resultType="com.tagging.dto.targetTrackT.TargetTrackGetTrackRsp">
+        select distinct
+        s.mot_img_url,
+        s.shoot_time,
+        s.shoot_place,
+        s.sensor_type,
+        t2.object_type,
+        t2.object_model,
+        t1.track_id,
+        t1.target_type_id,
+        t1.link_id
+        from
+        video_information s inner join target_track_t t1 inner join target_type_t t2
+        where
+        s.data_status = "A"
+        and
+        s.video_id = t1.video_id
+        and
+        t1.target_type_id = t2.target_type_id
+        and
+        t1.track_id = #{trackId, jdbcType = VARCHAR}
+        and
+        s.video_id = #{videoId, jdbcType = VARCHAR}
+
+        ;
+    </select>
+
+    <select id="getObjectType" resultType="string">
+        select distinct t2.object_type from video_information s inner join target_track_t t1 inner join target_type_t t2 where s.video_id = t1.video_id and t1.target_type_id = t2.target_type_id and s.video_id = #{videoId, jdbcType = VARCHAR}
+
+        ;
+    </select>
+
+    <select id="count" resultType="long">
+        select count(distinct s.video_id,s.video_name,s.sensor_type,s.shoot_time) from video_information s inner join target_track_t t1 inner join target_type_t t2 where s.data_status = "A" and s.video_id = t1.video_id and t1.target_type_id = t2.target_type_id
+        <if test="videoName != null and videoName != ''">
+            and s.video_name = #{videoName, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != ''">
+            and s.sensor_type = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        <if test="objectType != null and objectType != ''">
+            and t2.object_type = #{objectType, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTimeBegin != null and shootTimeBegin != ''">
+            <if test="shootTimeEnd != null and shootTimeEnd != ''">
+                and (s.shoot_time
+                between ${shootTimeBegin}
+                and ${shootTimeEnd})
+            </if>
+        </if>
+        <if test="shootPlace != null and shootPlace != ''">
+            and shoot_place = #{shootPlace,jdbcType = VARCHAR}
+        </if>
+        ;
+    </select>
+
+    <select id="getTarget" resultType="map">
+        select distinct t2.object_type,t1.track_id from video_information s inner join target_track_t t1 inner join target_type_t t2 where s.video_id = t1.video_id and t1.target_type_id = t2.target_type_id and s.video_id = #{videoId, jdbcType = VARCHAR}
+
+        ;
+    </select>
+
+    <select id="targetTrackGetList" resultType="com.tagging.dto.targetTrackT.TargetTrackGetListRsp">
+        select distinct s.video_id,s.video_name,s.sensor_type,s.shoot_time,s.update_timestamp from video_information s inner join target_track_t t1 inner join target_type_t t2 where s.video_id = t1.video_id and t1.target_type_id = t2.target_type_id and s.data_status = "A"
+        <if test="videoName != null and videoName != ''">
+            and s.video_name = #{videoName, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != ''">
+            and s.sensor_type = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        <if test="objectType != null and objectType != ''">
+            and t2.object_type = #{objectType, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTimeBegin != null and shootTimeBegin != ''">
+            <if test="shootTimeEnd != null and shootTimeEnd != ''">
+                and (s.shoot_time
+                between ${shootTimeBegin}
+                and ${shootTimeEnd})
+            </if>
+        </if>
+        <if test="shootPlace != null and shootPlace != ''">
+            and shoot_place = #{shootPlace,jdbcType = VARCHAR}
+        </if>
+        order by s.update_timestamp desc
+        limit #{offset},#{queryCount};
+        ;
+    </select>
+
+    <select id="queryTrackInformation" resultType="com.tagging.dto.visibleTagging.VisibleTaggingQueryTrackInformationRsp">
+        select
+        f.left_upper_corner_abscissa,
+        f.left_upper_corner_ordinate,
+        f.right_lower_quarter_abscissa,
+        f.right_lower_quarter_ordinate,
+        t3.*
+        from
+        (select frame_information_id,
+        left_upper_corner_abscissa,
+        left_upper_corner_ordinate,
+        right_lower_quarter_abscissa,
+        right_lower_quarter_ordinate
+        from
+        frame_information
+        where
+        frame_information_id = #{frameInformationId,jdbcType=VARCHAR})
+        f
+        left join
+        (select
+        t1.object_type,
+        t1.object_model,
+        t1.track_type_id,
+        t2.link_id
+        from
+        target_type_t t1
+        inner join
+        target_track_t t2
+        where
+        t2.video_id = #{videoId,jdbcType = VARCHAR}
+        and
+        t2.track_id = #{trackId,jdbcType = VARCHAR}
+        and
+        t1.target_type_id = t2.target_type_id)
+        t3
+        on
+        frame_information_id = #{frameInformationId,jdbcType=VARCHAR};
+    </select>
+
+    <update id="updateTrackInformation" >
+        update target_type_t t1,
+        target_track_t t2
+        set
+        t1.object_type = #{objectType, jdbcType = VARCHAR},
+        t1.object_model = #{objectModel, jdbcType = VARCHAR},
+        t1.track_type_id = #{trackTypeId,jdbcType = VARCHAR},
+        t2.track_type_id = #{trackTypeId,jdbcType = VARCHAR}
+        where
+        t1.target_type_id = t2.target_type_id
+        and
+        t2.video_id = #{videoId,jdbcType = VARCHAR}
+        and
+        t2.track_id = #{trackId,jdbcType = VARCHAR};
+    </update>
+
+    <update id="updateFrameInformation">
+        update
+        frame_information f
+        set
+        f.left_upper_corner_abscissa = #{leftUpperCornerAbscissa, jdbcType = VARCHAR},
+        f.left_upper_corner_ordinate = #{leftUpperCornerOrdinate, jdbcType = VARCHAR},
+        f.right_lower_quarter_abscissa = #{rightLowerQuarterAbscissa, jdbcType = VARCHAR},
+        f.right_lower_quarter_ordinate = #{rightLowerQuarterOrdinate, jdbcType = VARCHAR}
+        where
+        f.frame_information_id = #{frameInformationId, jdbcType = VARCHAR}
+
+    </update>
+
+    <select id="queryByVideoIdAndTrackId" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A" AND TRACK_ID = #{trackId} AND VIDEO_ID = #{videoId}
+    </select>
+
+    <select id="queryById" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A" AND UNIQUE_ID = #{uniqueId}
+    </select>
+
+    <select id="queryTypeByVideoId" resultType="String">
+        select TRACK_TYPE_ID
+        from target_track_t
+        WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId} AND TRACK_TYPE_ID != " " AND TRACK_TYPE_ID != ""
+        GROUP BY TRACK_TYPE_ID
+    </select>
+
+    <update id="deleteByVideoIdAndTrackId">
+        update target_track_t
+        set DATA_STATUS = "D"
+        WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId} AND TRACK_ID = #{trackId}
+    </update>
+
+    <select id="queryTrack" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId} AND TARGET_TYPE_ID = #{targetTypeId}
+    </select>
+
+    <select id="queryByVideoId" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        where data_status = "A" and video_id = #{videoId}
+    </select>
+
+    <select id="queryByTrack" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A"
+        <if test="videoId != null and videoId != '' ">
+            AND VIDEO_ID = #{videoId, jdbcType = VARCHAR}
+        </if>
+        <if test="trackId != null and trackId != '' ">
+            AND TRACK_ID = #{trackId, jdbcType = VARCHAR}
+        </if>
+    </select>
+
+    <select id="queryTrackIdByLoadFile" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A"
+        <if test="targetTypeId != null and targetTypeId != '' ">
+        AND TARGET_TYPE_ID = #{targetTypeId}
+        </if>
+        <if test="videoId != null and videoId != '' ">
+        AND VIDEO_ID = #{videoId}
+        </if>
+    </select>
+
+    <select id="queryTrackNumbers" resultType="long">
+        select count(*)
+        from target_track_t
+        <if test="videoId != null and videoId != '' ">
+            WHERE VIDEO_ID = #{videoId}
+        </if>
+    </select>
+
+    <select id="queryByLinkId" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_track_t
+        WHERE DATA_STATUS = "A"
+        <if test="linkId != null and linkId != '' ">
+            AND LINK_ID = #{linkId}
+        </if>
+    </select>
+</mapper>

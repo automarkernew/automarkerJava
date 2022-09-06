@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tagging.dao.mapper.FrameInformationDao">
+
+    <select id="getCoordinateRsp" resultType="com.tagging.dto.yoloTagging.YoloTaggingGetCoordinateRsp">
+        SELECT *
+        FROM frame_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="videoId != null and videoId != ''">
+            AND VIDEO_ID = #{videoId, jdbcType = VARCHAR}
+        </if>
+        <if test="frame != null and frame != ''">
+            AND FRAME = #{frame, jdbcType = INTEGER}
+        </if>
+        <if test="frameType != null and frameType != ''">
+            AND FRAME_TYPE = #{frameType, jdbcType = VARCHAR}
+        </if>
+        <if test="trackId != null and trackId != ''">
+            AND TRACK_ID = #{trackId, jdbcType = VARCHAR}
+        </if>
+        ORDER BY UPDATE_TIMESTAMP DESC
+    </select>
+    <select id = "queryByFrameId" resultType = "com.tagging.entity.FrameInformation">
+        SELECT *
+        FROM frame_information
+        WHERE DATA_STATUS = 'A' AND FRAME_INFORMATION_ID = #{frameInformationId, jdbcType = VARCHAR }
+    </select>
+
+    <select id = "queryToCv2" resultType = "com.tagging.entity.FrameInformation">
+        SELECT *
+        FROM frame_information
+        WHERE DATA_STATUS = 'A' AND FRAME_TYPE = 1 AND VIDEO_ID = #{videoId}
+        ORDER BY TRACK_ID + 0 , FRAME DESC
+    </select>
+    <update id = "updateFrameInformation">
+        update frame_information
+        set LEFT_UPPER_CORNER_ABSCISSA = #{leftUpperCornerAbscissa},
+            LEFT_UPPER_CORNER_ORDINATE = #{leftUpperCornerOrdinate},
+            RIGHT_LOWER_QUARTER_ABSCISSA = #{rightLowerQuarterAbscissa},
+            RIGHT_LOWER_QUARTER_ORDINATE = #{rightLowerQuarterOrdinate},
+            UPDATE_TIMESTAMP = #{updateTimestamp},
+            VERSION = VERSION + 1
+        where DATA_STATUS = 'A' AND
+            FRAME_INFORMATION_ID = #{frameInformationId} AND
+            FRAME_TYPE = 1
+    </update>
+
+    <update id="deleteFrameInformation">
+        update frame_information
+        set DATA_STATUS = 'D',
+            UPDATE_TIMESTAMP = #{updateTimestamp},
+            VERSION = VERSION + 1
+        where FRAME_INFORMATION_ID = #{frameInformationId}
+    </update>
+
+    <update id="deleteAllFrameInformation">
+        update frame_information
+        set DATA_STATUS = 'D',
+            UPDATE_TIMESTAMP = #{updateTimestamp},
+            VERSION = VERSION + 1
+        where VIDEO_ID = #{videoId} AND TRACK_ID = #{trackId}
+    </update>
+
+    <select id="queryAllTrackId" resultType="com.tagging.dto.visibleTagging.VisibleTaggingMotQueryAllTrackIdRsp">
+        SELECT TRACK_ID as trackId
+        FROM frame_information
+        where DATA_STATUS = 'A' AND FRAME_TYPE = 1 AND VIDEO_ID = #{videoId}
+        GROUP BY TRACK_ID
+        ORDER BY TRACK_ID + 0
+    </select>
+
+    <select id="queryVideoName" resultType="com.tagging.entity.VideoInformation">
+        SELECT *
+        FROM video_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId}
+    </select>
+
+    <select id="queryByVideoIdAndTrackId" resultType="com.tagging.entity.FrameInformation">
+        SELECT *
+        FROM frame_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId} AND TRACK_ID = #{trackId}
+    </select>
+
+    <select id="getObjectCount" resultType="long">
+        SELECT count(*)
+        FROM frame_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="frame != null and frame != ''">
+            AND FRAME = #{frame, jdbcType =INTEGER}
+        </if>
+        <if test="videoId != null and videoId != ''">
+            AND VIDEO_ID = #{videoId, jdbcType =VARCHAR}
+        </if>
+        <if test="frameType != null and frameType != ''">
+            AND FRAME_TYPE = #{frameType, jdbcType = VARCHAR}
+        </if>
+        ORDER BY FRAME_INFORMATION_ID
+    </select>
+
+    <select id="queryByVideoIdAndTrackIdAndType" resultType="com.tagging.entity.FrameInformation">
+        SELECT *
+        FROM frame_information
+        WHERE DATA_STATUS = 'A'
+        <if test="videoId != null and videoId != ''">
+        AND VIDEO_ID = #{videoId, jdbcType = VARCHAR}
+        </if>
+        <if test="trackId != null and trackId != ''">
+        AND TRACK_ID = #{trackId, jdbcType = VARCHAR}
+        </if>
+        <if test="frameType != null and frameType != ''">
+        AND FRAME_TYPE = #{frameType, jdbcType = VARCHAR}
+        </if>
+        ORDER BY FRAME ASC
+    </select>
+
+    <select id = "queryAllFrames" resultType = "com.tagging.entity.FrameInformation">
+        SELECT *
+        FROM frame_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId}
+    </select>
+</mapper>

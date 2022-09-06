@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tagging.dao.mapper.VideoInformationDao">
+
+    <select id="query" resultType="com.tagging.dto.videoInformation.VideoInformationQueryRsp">
+        SELECT *
+        FROM video_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="videoName != null and videoName != ''">
+            AND VIDEO_NAME = #{videoName, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTimeBegin != null and shootTimeBegin != ''">
+            <if test="shootTimeEnd != null and shootTimeEnd != ''">
+                AND SHOOT_TIME BETWEEN
+                #{shootTimeBegin, jdbcType = VARCHAR} AND
+                #{shootTimeEnd, jdbcType = VARCHAR}
+            </if>
+        </if>
+        <if test="shootPlace != null and shootPlace != '' ">
+            AND SHOOT_PLACE = #{shootPlace, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != '' ">
+            AND SENSOR_TYPE = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        <if test="tagStatus != null and tagStatus != '' ">
+            AND TAG_STATUS = #{tagStatus, jdbcType = VARCHAR}
+        </if>
+        ORDER BY UPDATE_TIMESTAMP DESC
+        LIMIT #{offset},#{queryCount};
+    </select>
+
+    <select id="markquery" resultType="com.tagging.dto.videoInformation.VideoInformationQueryRsp">
+        SELECT *
+        FROM video_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="tagStatus != null and tagStatus != ''">
+            AND TAG_STATUS = #{tagStatus, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTime != null and shootTime != ''">
+            AND SHOOT_TIME = #{shootTime, jdbcType = VARCHAR}
+        </if>
+        <if test="shootPlace != null and shootPlace != '' ">
+            AND SHOOT_PLACE = #{shootPlace, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != '' ">
+            AND SENSOR_TYPE = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        ORDER BY UPDATE_TIMESTAMP DESC
+        LIMIT #{offset},#{queryCount};
+    </select>
+
+    <select id="count" resultType="long">
+        SELECT count(*)
+        FROM video_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="videoName != null and videoName != ''">
+            AND VIDEO_NAME = #{videoName, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTimeBegin != null and shootTimeBegin != ''">
+            <if test="shootTimeEnd != null and shootTimeEnd != ''">
+                AND SHOOT_TIME BETWEEN
+                #{shootTimeBegin, jdbcType = VARCHAR} AND
+                #{shootTimeEnd, jdbcType = VARCHAR}
+            </if>
+        </if>
+        <if test="shootPlace != null and shootPlace != '' ">
+            AND SHOOT_PLACE = #{shootPlace, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != '' ">
+            AND SENSOR_TYPE = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        <if test="tagStatus != null and tagStatus != '' ">
+            AND TAG_STATUS = #{tagStatus, jdbcType = VARCHAR}
+        </if>
+        ORDER BY VIDEO_ID
+    </select>
+
+    <select id="markcount" resultType="long">
+        SELECT count(*)
+        FROM video_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="tagStatus != null and tagStatus != ''">
+            AND TAG_STATUS = #{tagStatus, jdbcType = VARCHAR}
+        </if>
+        <if test="shootTime != null and shootTime != ''">
+            AND SHOOT_TIME = #{shootTime, jdbcType = VARCHAR}
+        </if>
+        <if test="shootPlace != null and shootPlace != '' ">
+            AND SHOOT_PLACE = #{shootPlace, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != '' ">
+            AND SENSOR_TYPE = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        ORDER BY VIDEO_ID
+    </select>
+
+    <select id = "queryByVideoId" resultType = "com.tagging.entity.VideoInformation">
+        SELECT *
+        FROM video_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId, jdbcType = VARCHAR }
+    </select>
+
+    <select id = "loadFile" resultType = "com.tagging.entity.VideoInformation">
+        SELECT *
+        FROM video_information
+        WHERE
+        DATA_STATUS = 'A'
+        <if test="shootTime != null and shootTime != ''">
+            AND SHOOT_TIME = #{shootTime, jdbcType = VARCHAR}
+        </if>
+        <if test="shootPlace != null and shootPlace != '' ">
+            AND SHOOT_PLACE = #{shootPlace, jdbcType = VARCHAR}
+        </if>
+        <if test="sensorType != null and sensorType != '' ">
+            AND SENSOR_TYPE = #{sensorType, jdbcType = VARCHAR}
+        </if>
+        <if test="tagStatus != null and tagStatus != '' ">
+            AND TAG_STATUS = #{tagStatus, jdbcType = VARCHAR}
+        </if>
+    </select>
+
+    <select id = "queryShootPlace" resultType = "com.tagging.dto.videoInformation.VideoInformationQueryShootPlaceRsp">
+        SELECT DISTINCT SHOOT_PLACE
+        FROM video_information
+        WHERE DATA_STATUS = 'A'
+    </select>
+
+    <select id = "queryVideoLength" resultType = "com.tagging.dto.videoInformation.VideoLengthRsp">
+        SELECT LENGTH as length
+        FROM video_information
+        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId}
+    </select>
+
+</mapper>
