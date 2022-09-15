@@ -28,17 +28,17 @@ public class InfraredImageTaggingController {
     }
 
     @RequestMapping("imageRegister")
-    public R imageRegister(@RequestBody Map<String,Object> req){
+    public R imageRegister(@RequestBody Map<String,Object> req) throws IOException {
         ImageRegisterReq imageRegisterReq = JSON.parseObject(JSON.toJSONString(req.get("ImageRegisterReq")),ImageRegisterReq.class);
-        infraredImageTaggingService.updateOffsetByVideoId(imageRegisterReq);
+        infraredImageTaggingService.motByVideoId(imageRegisterReq);
         return R.ok();
     }
 
-    @RequestMapping("tagByVisible")
-    private R tagByVisible(@RequestBody Map<String,Object> req) throws IOException {
-        InfraredImageTaggingTagReq imageRegisterReq = JSON.parseObject(JSON.toJSONString(req.get("InfraredImageTaggingTagReq")), InfraredImageTaggingTagReq.class);
-        infraredImageTaggingService.tagByVisibleId(imageRegisterReq);
-        return R.ok();
-    }
+//    @RequestMapping("tagByVisible")
+//    private R tagByVisible(@RequestBody Map<String,Object> req) throws IOException {
+//        InfraredImageTaggingTagReq imageRegisterReq = JSON.parseObject(JSON.toJSONString(req.get("InfraredImageTaggingTagReq")), InfraredImageTaggingTagReq.class);
+//        infraredImageTaggingService.tagByVisibleId(imageRegisterReq);
+//        return R.ok();
+//    }
 
 }

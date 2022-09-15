@@ -6,14 +6,15 @@ import com.tagging.dao.mapper.FrameInformationDao;
 import com.tagging.dao.mapper.ObjectTypeDao;
 import com.tagging.dao.mapper.TargetTrackDao;
 import com.tagging.dao.mapper.VideoInformationDao;
+import com.tagging.dto.infraredImageTagging.Coordinate;
 import com.tagging.dto.infraredImageTagging.ImageRegisterReq;
 import com.tagging.dto.infraredImageTagging.InfraredImageTaggingTagReq;
 import com.tagging.dto.infraredImageTagging.InfraredImageTaggingTagRsp;
 import com.tagging.entity.FrameInformation;
 import com.tagging.entity.TargetTrackT;
 import com.tagging.entity.VideoInformation;
+import com.tagging.enums.DataStatusEnum;
 import com.tagging.enums.VideoInformation.IsMotedEnum;
-import com.tagging.enums.VideoInformation.SensorTypeEnum;
 import com.tagging.exception.CMSException;
 import com.tagging.utils.DataUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +25,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.*;
-import java.nio.file.Paths;
-import java.util.HashMap;
+import java.nio.file.Files;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 import static com.tagging.utils.FileUtils.consumeInputStream;
 import static com.tagging.utils.FileUtils.copyDir;
@@ -189,159 +188,290 @@ public class InfraredImageTaggingService {
         }
     }
 
-    public void updateOffsetByVideoId(ImageRegisterReq req){
-        VideoInformation videoInformation = videoInformationDao.selectByPrimaryKey(req.getVideoId());
-        VideoInformation videoInformation1 = videoInformationDao.selectByPrimaryKey(req.getLinkedVideoId());
-        if (videoInformation1 == null){
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"未上传该视频对应的可见光视频");
-        }
-        if (videoInformation == null){
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"未上传该红外视频");
-        }
-        else if (! videoInformation.getSensorType().equals(SensorTypeEnum.INFRARED.getState())){
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"该视频不是红外光");
-        }
-        Float InfraredImageX = new Float(req.getInfraredImageX());
-        Float InfraredImageY = new Float(req.getInfraredImageY());
-        Float VisibleImageX = new Float(req.getVisibleImageX());
-        Float VisibleImageY = new Float(req.getVisibleImageY());
-        Float offsetX = VisibleImageX - InfraredImageX;
-        Float offsetY = VisibleImageY - InfraredImageY;
-        videoInformation.setOffsetX(String.valueOf(offsetX));
-        videoInformation.setOffsetY(String.valueOf(offsetY));
-        videoInformation.setUpdateTimestamp(DataUtils.getSysTimeByFormat("yyyyMMddHHmmss"));
-        videoInformation.setVersion(videoInformation.getVersion() + 1);
-        videoInformationDao.updateByPrimaryKeySelective(videoInformation);
-        logger.info("红外光 " + req.getVideoId() + "  与可见光 " + req.getLinkedVideoId()
-                + "  设置 Offset: (" + String.valueOf(offsetX) + ", " + String.valueOf(offsetY) + ") 成功");
-    }
+    public void motByVideoId(ImageRegisterReq req) throws IOException {
+        VideoInformation InfraredVideoInformation = videoInformationDao.selectByPrimaryKey(req.getVideoId());
+        List<Coordinate> coordinateInfrareds = req.getInfraredImagePoints();
+        List<Coordinate> coordinateVisibles = req.getVisibleImagePoints();
 
-    public void tagByVisibleId(InfraredImageTaggingTagReq req) throws IOException {
-        String VisibleVideoPath = String.valueOf(Paths.get(minioLocalUrl, imgBuket, req.getLinkedVideoId()));
-        String InfraredVideoPath = String.valueOf(Paths.get(minioLocalUrl, imgBuket, req.getVideoID()));
-        String InfraredMotTxtPath = String.valueOf(Paths.get(minioLocalUrl, mottxtBuket, req.getVideoID(), "mot.txt"));
-        File dir = new File(String.valueOf(Paths.get(minioLocalUrl, mottxtBuket, req.getVideoID())));
-        if (! dir.exists()) {
-            dir.mkdir();
+        if (coordinateInfrareds.size() == 0 && coordinateVisibles.size() == 0){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"可见光或红外坐标点为0个");
         }
-        File write = new File(InfraredMotTxtPath);
-        write.createNewFile(); // 创建新文件
-        BufferedWriter out = new BufferedWriter(new FileWriter(write));
-        if (!Objects.equals(getFileNum(VisibleVideoPath), getFileNum(InfraredVideoPath))){
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外与可见光帧数不同，无法自动匹配");
+        if (coordinateInfrareds.size() != coordinateVisibles.size()){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"可见光或红外坐标点数量不相等");
         }
-        List<FrameInformation> frameInformations = frameInformationDao.queryAllFrames(req.getLinkedVideoId());
-        VideoInformation videoInformationVisible = videoInformationDao.selectByPrimaryKey(req.getLinkedVideoId());
-        VideoInformation videoInformationInfrared = videoInformationDao.selectByPrimaryKey(req.getVideoID());
-        Float height = new Float(videoInformationInfrared.getHeight());
-        Float width = new Float(videoInformationInfrared.getWidth());
-        if (videoInformationInfrared.getOffsetX().equals("") || videoInformationInfrared.getOffsetY().equals("")){
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外与可见光未设置offset");
-        }
-        Float offsetX = new Float(videoInformationInfrared.getOffsetX());
-        Float offsetY = new Float(videoInformationInfrared.getOffsetY());
-        if (! videoInformationVisible.getIsTagged().equals("1"))
-        {
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"对应的可见光未标注");
-        }
-        if (videoInformationInfrared.getIsTagged().equals("1"))
-        {
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外光已标注");
-        }
-
-        for (FrameInformation frameInformation : frameInformations) {
-            Map<String, Float> map = getInfraredCornerByVisible(new Float(frameInformation.getLeftUpperCornerAbscissa()),
-                    new Float(frameInformation.getLeftUpperCornerOrdinate()),
-                    new Float(frameInformation.getRightLowerQuarterAbscissa()),
-                    new Float(frameInformation.getRightLowerQuarterOrdinate()),
-                    height, width, offsetX, offsetY);
-            if (map.get("isIn").equals(1.0F)) {
-                FrameInformation frameInformation1;
-                frameInformation1 = frameInformation;
-                frameInformation1.setFrameInformationId(String.valueOf(cachedUidGenerator.getUID()));
-                frameInformation1.setVideoId(req.getVideoID());
-                frameInformation1.setLeftUpperCornerAbscissa(String.valueOf(map.get("leftUpperCornerAbscissaInfrared")));
-                frameInformation1.setLeftUpperCornerOrdinate(String.valueOf(map.get("leftUpperCornerOrdinateInfrared")));
-                frameInformation1.setRightLowerQuarterAbscissa(String.valueOf(map.get("rightLowerQuarterAbscissaInfrared")));
-                frameInformation1.setRightLowerQuarterOrdinate(String.valueOf(map.get("rightLowerQuarterOrdinateInfrared")));
-                frameInformation1.setCreateTimestamp(DataUtils.getSysTimeByFormat());
-                frameInformation1.setUpdateTimestamp(DataUtils.getSysTimeByFormat());
-
-                out.write(frameInformation1.getFrame() + " " +
-                              frameInformation1.getTrackId() + " " +
-                              frameInformation1.getLeftUpperCornerAbscissa() + " " +
-                              frameInformation1.getLeftUpperCornerOrdinate() + " " +
-                              frameInformation1.getRightLowerQuarterAbscissa() + " " +
-                              frameInformation1.getRightLowerQuarterOrdinate() + "\r\n"); // \r\n即为换行
-                out.flush(); // 把缓存区内容压入文件
-                frameInformationDao.insert(frameInformation1);
+        if (InfraredVideoInformation.getIsMoted().equals("1")){
+            logger.info("可见光视频已经完成一次轨迹跟踪，现在进行删除更新操作");
+            List<FrameInformation> frameInformations = frameInformationDao.queryAllFrames(req.getVideoId());
+            for (FrameInformation frameInformation : frameInformations) {
+                frameInformation.setDataStatus(DataStatusEnum.DELETED.getState());
+                frameInformation.setVersion(frameInformation.getVersion() + 1);
+                frameInformation.setUpdateTimestamp(DataUtils.getSysTimeByFormat("yyyyMMddHHmmss"));
+                frameInformationDao.updateByPrimaryKey(frameInformation);
             }
         }
-        out.close(); // 关闭文件
-        videoInformationInfrared.setIsTagged(videoInformationVisible.getIsTagged());
-        log.info("红外 ID: " + req.getVideoID() + "标注成功");
+        StringBuilder InfraredXY = new StringBuilder();
+        StringBuilder VisibleXY = new StringBuilder();
+        for (int i = 0; i < coordinateInfrareds.size(); i++) {
+            Coordinate coordinateInfrared = coordinateInfrareds.get(i);
+            Coordinate coordinateVisible = coordinateVisibles.get(i);
+            if (i != coordinateInfrareds.size() - 1) {
+                InfraredXY.append(coordinateInfrared.getX()).append(",").append(coordinateInfrared.getY()).append(",");
+                VisibleXY.append(coordinateVisible.getX()).append(",").append(coordinateVisible.getY()).append(",");
+            }
+            else {
+                InfraredXY.append(coordinateInfrared.getX()).append(",").append(coordinateInfrared.getY());
+                VisibleXY.append(coordinateVisible.getX()).append(",").append(coordinateVisible.getY());
+            }
+
+        }
+
+        String VisibleMotTxtPath = minioLocalUrl + File.separator + mottxtBuket + File.separator + req.getLinkedVideoId() + File.separator + "mot.txt";
+        String InfraredMotTxtPath = minioLocalUrl + File.separator + mottxtBuket + File.separator + req.getVideoId() + File.separator + "mot.txt";
+        String InfraredWeights = InfraredVideoInformation.getWidth();
+        String InfraredHeight = InfraredVideoInformation.getHeight();
+        File fileVisible = new File(VisibleMotTxtPath);
+        if (!fileVisible.exists()){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外对应的可见光视频的mot.txt文件不存在");
+        }
         try {
-            String cmd = "cd "
-                    + executeUrl
-                    + " && " + pythonName  + " " + yoloUrl + "/tracking_paint.py" + " " +
-                    minioLocalUrl + '/' + minioBucketName + '/' + req.getVideoID() + '/' + videoInformationInfrared.getVideoName() + " " +
+            String cmd = "cd" +' '+ executeUrl +  " " + "&&" + " " + pythonName  + ' ' + yoloUrl + "/calc.py" + " " +
+                    VisibleXY + " " +
+                    InfraredXY + " " +
+                    VisibleMotTxtPath + " " +
                     InfraredMotTxtPath + " " +
-                    minioLocalUrl + '/' + motimgBuket + '/' + req.getVideoID() + '/';
+                    InfraredWeights + " " +
+                    InfraredHeight;
             Process p;
             p = Runtime.getRuntime().exec(new String[] {"/bin/sh", "-c", cmd});
             String inStr = consumeInputStream(p.getInputStream());
             String errStr = consumeInputStream(p.getErrorStream());
             p.waitFor();
             log.info(cmd);
-
-            InfraredImageTaggingTagRsp infraredImageTaggingTagRsp =new InfraredImageTaggingTagRsp();
-            infraredImageTaggingTagRsp.setHeight(videoInformationInfrared.getHeight());
-            infraredImageTaggingTagRsp.setWidth(videoInformationInfrared.getWidth());
-            infraredImageTaggingTagRsp.setImageUrl(motimgBuket + '/' + req.getVideoID());
-            videoInformationInfrared.setMotImgUrl(motimgBuket + '/' + req.getVideoID());
-            videoInformationInfrared.setVersion(videoInformationInfrared.getVersion()+1);
-            videoInformationDao.updateByPrimaryKey(videoInformationInfrared);
         }catch (Exception e){
             e.printStackTrace();
-            log.info("轨迹图生成失败");
-            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"轨迹图生成失败");
+            log.info("红外轨迹框自动生成失败");
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外轨迹框自动生成失败");
         }
-        videoInformationInfrared.setIsMoted(videoInformationVisible.getIsMoted());
-    }
 
-    public Integer getFileNum(String filePath){
-        File file = new File(filePath);
-        File[] files = file.listFiles();
-        assert files != null;
-        return files.length;
-    }
+        File fileInfrared = new File(InfraredMotTxtPath);
+        String encoding = "utf-8";
+        try (InputStreamReader read = new InputStreamReader(Files.newInputStream(fileInfrared.toPath()), encoding);
+             BufferedReader bufferedReader = new BufferedReader(read)) {
+            //判断文件是否存在
+            if (fileInfrared.isFile() && fileInfrared.exists()) {
+                String lineTxt;
+                while ((lineTxt = bufferedReader.readLine()) != null) {
+                    insertCor(lineTxt, InfraredVideoInformation);
+                }
+                try {
+                    String cmd = "cd "
+                            + executeUrl
+                            + " && " + pythonName  + " " + yoloUrl + "/tracking_paint.py" + " " +
+                            minioLocalUrl + '/' + minioBucketName + '/' + req.getVideoId() + '/' + InfraredVideoInformation.getVideoName() + " " +
+                            InfraredMotTxtPath + " " +
+                            minioLocalUrl + '/' + motimgBuket + '/' + req.getVideoId() + '/';
+                    Process p;
+                    p = Runtime.getRuntime().exec(new String[] {"/bin/sh", "-c", cmd});
+                    String inStr = consumeInputStream(p.getInputStream());
+                    String errStr = consumeInputStream(p.getErrorStream());
+                    p.waitFor();
+                    log.info(cmd);
 
-    public Map<String, Float> getInfraredCornerByVisible(Float leftUpperCornerAbscissa,
-                                                         Float leftUpperCornerOrdinate,
-                                                         Float rightLowerQuarterAbscissa,
-                                                         Float rightLowerQuarterOrdinate,
-                                                         Float height, Float width,
-                                                         Float offsetX, Float offsetY){
-        float leftUpperCornerAbscissaInfrared = leftUpperCornerAbscissa - offsetX;
-        float leftUpperCornerOrdinateInfrared = leftUpperCornerOrdinate - offsetY;
-        float rightLowerQuarterAbscissaInfrared = rightLowerQuarterAbscissa - offsetX;
-        float rightLowerQuarterOrdinateInfrared = rightLowerQuarterOrdinate - offsetY;
-
-        Map<String, Float> map = new HashMap<>();
-
-
-        if (!(leftUpperCornerAbscissaInfrared <= width && leftUpperCornerOrdinateInfrared <= height)) {
-            map.put("isIn", 0.0F);
-        }else if (! (rightLowerQuarterAbscissaInfrared >= 0 && rightLowerQuarterOrdinateInfrared >= 0)){
-            map.put("isIn", 0.0F);
-        } else {
-            map.put("isIn", 1.0F);
-            map.put("leftUpperCornerAbscissaInfrared", leftUpperCornerAbscissaInfrared <= 0 ? 0 : leftUpperCornerAbscissaInfrared);
-            map.put("leftUpperCornerOrdinateInfrared", leftUpperCornerOrdinateInfrared <= 0 ? 0 : leftUpperCornerOrdinateInfrared);
-            map.put("rightLowerQuarterAbscissaInfrared", rightLowerQuarterAbscissaInfrared >= width ? width : rightLowerQuarterAbscissaInfrared);
-            map.put("rightLowerQuarterOrdinateInfrared", rightLowerQuarterOrdinateInfrared <= height ? height : rightLowerQuarterOrdinateInfrared);
+                    InfraredVideoInformation.setMotImgUrl(motimgBuket + '/' + req.getVideoId());
+                    InfraredVideoInformation.setIsTagged(String.valueOf(1));
+                    InfraredVideoInformation.setIsMoted(String.valueOf(1));
+                    InfraredVideoInformation.setUpdateTimestamp(DataUtils.getSysTimeByFormat("yyyyMMddHHmmss"));
+                    InfraredVideoInformation.setVersion(InfraredVideoInformation.getVersion() + 1);
+                    videoInformationDao.updateByPrimaryKey(InfraredVideoInformation);
+                }catch (Exception e){
+                    e.printStackTrace();
+                    log.info("轨迹图生成失败");
+                    throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"轨迹图生成失败");
+                }
+            } else {
+                throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外视频的mot.txt生成错误");
+            }
+        } catch (Exception e) {
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外视频的mot.txt读取错误");
         }
-        return map;
     }
+
+    public void insertCor(String lineTxt, VideoInformation InfraredVideoInformation){
+        List<String> lines = Arrays.asList(lineTxt.split(" "));
+        FrameInformation frameInformation = new FrameInformation();
+        frameInformation.setFrameInformationId(String.valueOf(cachedUidGenerator.getUID()));
+        frameInformation.setVideoId(InfraredVideoInformation.getVideoId());
+        frameInformation.setFrame(Integer.valueOf(lines.get(0)));
+        frameInformation.setFrameType(String.valueOf(1));
+        frameInformation.setTrackId(lines.get(1));
+        frameInformation.setLeftUpperCornerAbscissa(lines.get(2));
+        frameInformation.setLeftUpperCornerOrdinate(lines.get(3));
+        frameInformation.setRightLowerQuarterAbscissa(lines.get(4));
+        frameInformation.setRightLowerQuarterOrdinate(lines.get(5));
+        frameInformation.setCreateTimestamp(DataUtils.getSysTimeByFormat());
+        frameInformation.setUpdateTimestamp(DataUtils.getSysTimeByFormat());
+        frameInformation.setSpecCode01("");
+        frameInformation.setSpecCode02("");
+        frameInformation.setSpecCode03("");
+        frameInformation.setVersion(1);
+        frameInformation.setDataStatus(DataStatusEnum.AVAILABLE.getState());
+        frameInformation.setRemarks("");
+        frameInformation.setReserve("");
+        frameInformationDao.insert(frameInformation);
+    }
+//    public void updateOffsetByVideoId(ImageRegisterReq req){
+//        VideoInformation videoInformation = videoInformationDao.selectByPrimaryKey(req.getVideoId());
+//        VideoInformation videoInformation1 = videoInformationDao.selectByPrimaryKey(req.getLinkedVideoId());
+//        if (videoInformation1 == null){
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"未上传该视频对应的可见光视频");
+//        }
+//        if (videoInformation == null){
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"未上传该红外视频");
+//        }
+//        else if (! videoInformation.getSensorType().equals(SensorTypeEnum.INFRARED.getState())){
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"该视频不是红外光");
+//        }
+//        Float InfraredImageX = new Float(req.getInfraredImageX());
+//        Float InfraredImageY = new Float(req.getInfraredImageY());
+//        Float VisibleImageX = new Float(req.getVisibleImageX());
+//        Float VisibleImageY = new Float(req.getVisibleImageY());
+//        Float offsetX = VisibleImageX - InfraredImageX;
+//        Float offsetY = VisibleImageY - InfraredImageY;
+//        videoInformation.setOffsetX(String.valueOf(offsetX));
+//        videoInformation.setOffsetY(String.valueOf(offsetY));
+//        videoInformation.setUpdateTimestamp(DataUtils.getSysTimeByFormat("yyyyMMddHHmmss"));
+//        videoInformation.setVersion(videoInformation.getVersion() + 1);
+//        videoInformationDao.updateByPrimaryKeySelective(videoInformation);
+//        logger.info("红外光 " + req.getVideoId() + "  与可见光 " + req.getLinkedVideoId()
+//                + "  设置 Offset: (" + String.valueOf(offsetX) + ", " + String.valueOf(offsetY) + ") 成功");
+//    }
+
+//    public void tagByVisibleId(InfraredImageTaggingTagReq req) throws IOException {
+//        String VisibleVideoPath = String.valueOf(Paths.get(minioLocalUrl, imgBuket, req.getLinkedVideoId()));
+//        String InfraredVideoPath = String.valueOf(Paths.get(minioLocalUrl, imgBuket, req.getVideoID()));
+//        String InfraredMotTxtPath = String.valueOf(Paths.get(minioLocalUrl, mottxtBuket, req.getVideoID(), "mot.txt"));
+//        File dir = new File(String.valueOf(Paths.get(minioLocalUrl, mottxtBuket, req.getVideoID())));
+//        if (! dir.exists()) {
+//            dir.mkdir();
+//        }
+//        File write = new File(InfraredMotTxtPath);
+//        write.createNewFile(); // 创建新文件
+//        BufferedWriter out = new BufferedWriter(new FileWriter(write));
+//        if (!Objects.equals(getFileNum(VisibleVideoPath), getFileNum(InfraredVideoPath))){
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外与可见光帧数不同，无法自动匹配");
+//        }
+//        List<FrameInformation> frameInformations = frameInformationDao.queryAllFrames(req.getLinkedVideoId());
+//        VideoInformation videoInformationVisible = videoInformationDao.selectByPrimaryKey(req.getLinkedVideoId());
+//        VideoInformation videoInformationInfrared = videoInformationDao.selectByPrimaryKey(req.getVideoID());
+//        Float height = new Float(videoInformationInfrared.getHeight());
+//        Float width = new Float(videoInformationInfrared.getWidth());
+//        if (videoInformationInfrared.getOffsetX().equals("") || videoInformationInfrared.getOffsetY().equals("")){
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外与可见光未设置offset");
+//        }
+//        Float offsetX = new Float(videoInformationInfrared.getOffsetX());
+//        Float offsetY = new Float(videoInformationInfrared.getOffsetY());
+//        if (! videoInformationVisible.getIsTagged().equals("1"))
+//        {
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"对应的可见光未标注");
+//        }
+//        if (videoInformationInfrared.getIsTagged().equals("1"))
+//        {
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"红外光已标注");
+//        }
+//
+//        for (FrameInformation frameInformation : frameInformations) {
+//            Map<String, Float> map = getInfraredCornerByVisible(new Float(frameInformation.getLeftUpperCornerAbscissa()),
+//                    new Float(frameInformation.getLeftUpperCornerOrdinate()),
+//                    new Float(frameInformation.getRightLowerQuarterAbscissa()),
+//                    new Float(frameInformation.getRightLowerQuarterOrdinate()),
+//                    height, width, offsetX, offsetY);
+//            if (map.get("isIn").equals(1.0F)) {
+//                FrameInformation frameInformation1;
+//                frameInformation1 = frameInformation;
+//                frameInformation1.setFrameInformationId(String.valueOf(cachedUidGenerator.getUID()));
+//                frameInformation1.setVideoId(req.getVideoID());
+//                frameInformation1.setLeftUpperCornerAbscissa(String.valueOf(map.get("leftUpperCornerAbscissaInfrared")));
+//                frameInformation1.setLeftUpperCornerOrdinate(String.valueOf(map.get("leftUpperCornerOrdinateInfrared")));
+//                frameInformation1.setRightLowerQuarterAbscissa(String.valueOf(map.get("rightLowerQuarterAbscissaInfrared")));
+//                frameInformation1.setRightLowerQuarterOrdinate(String.valueOf(map.get("rightLowerQuarterOrdinateInfrared")));
+//                frameInformation1.setCreateTimestamp(DataUtils.getSysTimeByFormat());
+//                frameInformation1.setUpdateTimestamp(DataUtils.getSysTimeByFormat());
+//
+//                out.write(frameInformation1.getFrame() + " " +
+//                              frameInformation1.getTrackId() + " " +
+//                              frameInformation1.getLeftUpperCornerAbscissa() + " " +
+//                              frameInformation1.getLeftUpperCornerOrdinate() + " " +
+//                              frameInformation1.getRightLowerQuarterAbscissa() + " " +
+//                              frameInformation1.getRightLowerQuarterOrdinate() + "\r\n"); // \r\n即为换行
+//                out.flush(); // 把缓存区内容压入文件
+//                frameInformationDao.insert(frameInformation1);
+//            }
+//        }
+//        out.close(); // 关闭文件
+//        videoInformationInfrared.setIsTagged(videoInformationVisible.getIsTagged());
+//        log.info("红外 ID: " + req.getVideoID() + "标注成功");
+//        try {
+//            String cmd = "cd "
+//                    + executeUrl
+//                    + " && " + pythonName  + " " + yoloUrl + "/tracking_paint.py" + " " +
+//                    minioLocalUrl + '/' + minioBucketName + '/' + req.getVideoID() + '/' + videoInformationInfrared.getVideoName() + " " +
+//                    InfraredMotTxtPath + " " +
+//                    minioLocalUrl + '/' + motimgBuket + '/' + req.getVideoID() + '/';
+//            Process p;
+//            p = Runtime.getRuntime().exec(new String[] {"/bin/sh", "-c", cmd});
+//            String inStr = consumeInputStream(p.getInputStream());
+//            String errStr = consumeInputStream(p.getErrorStream());
+//            p.waitFor();
+//            log.info(cmd);
+//
+//            InfraredImageTaggingTagRsp infraredImageTaggingTagRsp =new InfraredImageTaggingTagRsp();
+//            infraredImageTaggingTagRsp.setHeight(videoInformationInfrared.getHeight());
+//            infraredImageTaggingTagRsp.setWidth(videoInformationInfrared.getWidth());
+//            infraredImageTaggingTagRsp.setImageUrl(motimgBuket + '/' + req.getVideoID());
+//            videoInformationInfrared.setMotImgUrl(motimgBuket + '/' + req.getVideoID());
+//            videoInformationInfrared.setVersion(videoInformationInfrared.getVersion()+1);
+//            videoInformationDao.updateByPrimaryKey(videoInformationInfrared);
+//        }catch (Exception e){
+//            e.printStackTrace();
+//            log.info("轨迹图生成失败");
+//            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE,"轨迹图生成失败");
+//        }
+//        videoInformationInfrared.setIsMoted(videoInformationVisible.getIsMoted());
+//    }
+//
+//    public Integer getFileNum(String filePath){
+//        File file = new File(filePath);
+//        File[] files = file.listFiles();
+//        assert files != null;
+//        return files.length;
+//    }
+//
+//    public Map<String, Float> getInfraredCornerByVisible(Float leftUpperCornerAbscissa,
+//                                                         Float leftUpperCornerOrdinate,
+//                                                         Float rightLowerQuarterAbscissa,
+//                                                         Float rightLowerQuarterOrdinate,
+//                                                         Float height, Float width,
+//                                                         Float offsetX, Float offsetY){
+//        float leftUpperCornerAbscissaInfrared = leftUpperCornerAbscissa - offsetX;
+//        float leftUpperCornerOrdinateInfrared = leftUpperCornerOrdinate - offsetY;
+//        float rightLowerQuarterAbscissaInfrared = rightLowerQuarterAbscissa - offsetX;
+//        float rightLowerQuarterOrdinateInfrared = rightLowerQuarterOrdinate - offsetY;
+//
+//        Map<String, Float> map = new HashMap<>();
+//
+//
+//        if (!(leftUpperCornerAbscissaInfrared <= width && leftUpperCornerOrdinateInfrared <= height)) {
+//            map.put("isIn", 0.0F);
+//        }else if (! (rightLowerQuarterAbscissaInfrared >= 0 && rightLowerQuarterOrdinateInfrared >= 0)){
+//            map.put("isIn", 0.0F);
+//        } else {
+//            map.put("isIn", 1.0F);
+//            map.put("leftUpperCornerAbscissaInfrared", leftUpperCornerAbscissaInfrared <= 0 ? 0 : leftUpperCornerAbscissaInfrared);
+//            map.put("leftUpperCornerOrdinateInfrared", leftUpperCornerOrdinateInfrared <= 0 ? 0 : leftUpperCornerOrdinateInfrared);
+//            map.put("rightLowerQuarterAbscissaInfrared", rightLowerQuarterAbscissaInfrared >= width ? width : rightLowerQuarterAbscissaInfrared);
+//            map.put("rightLowerQuarterOrdinateInfrared", rightLowerQuarterOrdinateInfrared <= height ? height : rightLowerQuarterOrdinateInfrared);
+//        }
+//        return map;
+//    }
 }
 
