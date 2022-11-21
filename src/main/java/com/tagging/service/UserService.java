@@ -7,9 +7,10 @@ import com.tagging.dto.QuerySummaryRsp;
 import com.tagging.dto.user.*;
 import com.tagging.entity.User;
 import com.tagging.enums.DataStatusEnum;
-import com.tagging.enums.VideoInformation.IsMotedEnum;
+import com.tagging.enums.ResultCodeEnum;
 import com.tagging.exception.CMSException;
 import com.tagging.utils.DataUtils;
+import com.tagging.utils.TokenUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -94,10 +95,17 @@ public class UserService {
             throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, "该用户不存在或已被删除");
         } else {
             //判断密码是否正确
-            if (!user.getUserPassword().equals(req.getUserPassword())) {
+            List<User> userInfo = userDao.queryByUserName(user.getUserName());
+            String memberSalt = userInfo.get(0).getUserSalt();
+            if (memberSalt.equals("")){
+                throw new CMSException(ResultCodeEnum.UNREGISTERED);
+            }
+            String DbPassword = TokenUtil.md5(req.getUserPassword(), memberSalt);
+            String DbPassword_new = TokenUtil.md5(req.getNewPassword(), memberSalt);
+            if (!user.getUserPassword().equals(DbPassword)) {
                 throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, "输入的密码错误,请尝试重新输入");
             } else {
-                user.setUserPassword(req.getNewPassword());
+                user.setUserPassword(DbPassword_new);
                 user.setUpdateTimestamp(DataUtils.getSysTimeByFormat());
                 user.setVersion(user.getVersion() + 1);
                 userDao.updateByPrimaryKeySelective(user);
