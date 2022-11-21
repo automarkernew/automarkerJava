@@ -3,11 +3,10 @@ package com.tagging.dao.mapper;
 import com.tagging.dao.base.BaseDao;
 import com.tagging.dto.targetTrackT.TargetTrackGetListRsp;
 import com.tagging.dto.targetTrackT.TargetTrackGetListRsp.target;
-import com.tagging.dto.targetTrackT.TargetTrackGetTrackRsp.relatedInformation;
 import com.tagging.dto.targetTrackT.TargetTrackGetTrackRsp;
+import com.tagging.dto.targetTrackT.TargetTrackGetTrackRsp.relatedInformation;
 import com.tagging.dto.visibleTagging.VisibleTaggingQueryTrackInformationRsp;
 import com.tagging.entity.TargetTrackT;
-import com.tagging.entity.TargetTypeT;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -89,6 +88,8 @@ public interface TargetTrackDao extends BaseDao<TargetTrackT> {
 
     void deleteByVideoIdAndTrackId(@Param("videoId") String videoId,
                                     @Param("trackId") String trackId);
+
+    void deleteByVideoId(@Param("videoId") String videoId);
 
     List<TargetTrackT> queryTrack(@Param("videoId") String videoId,
                                     @Param("targetTypeId") String targetTypeId);

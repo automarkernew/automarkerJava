@@ -39,7 +39,7 @@ minio:
   imgBuket: img
   motimgBuket: motimg
   txtBuket: txt
-  serverFilePath: /home/homefun/code/env/server
+  serverFilePath: /home/homefun/code/project/minio_server/server
 
 # yolo5
 # local是yolo算法地址

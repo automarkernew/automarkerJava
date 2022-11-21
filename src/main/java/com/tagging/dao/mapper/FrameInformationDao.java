@@ -51,4 +51,6 @@ public interface FrameInformationDao extends BaseDao<FrameInformation> {
 
     List<FrameInformation> queryAllFrames(@Param("videoId") String videoId);
 
+    void deleteByVideoId(@Param("videoId") String videoId);
+
 }

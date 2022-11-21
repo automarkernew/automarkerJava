@@ -5,7 +5,7 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql.szdx.svc.cluster.local:3306/test?serverTimezone=UTC
+    url: jdbc:mysql://mysql.szdx.svc.cluster.local:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: Root123456
   servlet:
@@ -39,11 +39,12 @@ minio:
   imgBuket: img
   motimgBuket: motimg
   txtBuket: txt
+  serverFilePath: /data/server
 
 # yolo5
 # local是yolo算法地址
 # execute是相应的python解释器地址
 yolo5:
   localUrl: /app
-  executeUrl: /usr/bin
-  pythonName: python3
+  executeUrl: /root/miniconda3/envs/Auto/bin
+  pythonName: ./python3.7

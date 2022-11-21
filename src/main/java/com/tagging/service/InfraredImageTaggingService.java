@@ -15,6 +15,7 @@ import com.tagging.entity.TargetTrackT;
 import com.tagging.entity.VideoInformation;
 import com.tagging.enums.DataStatusEnum;
 import com.tagging.enums.VideoInformation.IsMotedEnum;
+import com.tagging.enums.VideoInformation.TagStatusEnum;
 import com.tagging.exception.CMSException;
 import com.tagging.utils.DataUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -87,8 +88,12 @@ public class InfraredImageTaggingService {
             throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, "可见光视频还未进行轨迹跟踪");
         }
 
+        if(video1.getTagStatus().equals(TagStatusEnum.F.getState())){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, "红外视频已完成标注");
+        }
 
-        //同步轨迹表的信息
+        //同步轨迹表的信息,先删除再同步
+        targetTrackDao.deleteByVideoId(video1.getVideoId());
         List<TargetTrackT> targetTrackTList = targetTrackDao.queryByVideoId(req.getLinkedVideoId());
         for(int i=0;i<targetTrackTList.size();i++){
             TargetTrackT targetTrackT = targetTrackTList.get(i);
@@ -103,7 +108,8 @@ public class InfraredImageTaggingService {
             targetTrackDao.insert(targetTrackT);
         }
 
-        //同步标注信息表(理论上需要修改坐标)
+        //同步标注信息表(理论上需要修改坐标),先删除再同步
+        frameInformationDao.deleteByVideoId(video1.getVideoId());
         List<FrameInformation> frameInformationList = frameInformationDao.queryToCv2(req.getLinkedVideoId());
         for (int i=0;i<frameInformationList.size();i++){
             FrameInformation frameInformation = frameInformationList.get(i);

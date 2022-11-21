@@ -33,6 +33,13 @@
         WHERE DATA_STATUS = 'A' AND FRAME_TYPE = 1 AND VIDEO_ID = #{videoId}
         ORDER BY TRACK_ID + 0 , FRAME DESC
     </select>
+
+    <update id="deleteByVideoId">
+        update frame_information
+        set DATA_STATUS = "D"
+        WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId}
+    </update>
+
     <update id = "updateFrameInformation">
         update frame_information
         set LEFT_UPPER_CORNER_ABSCISSA = #{leftUpperCornerAbscissa},

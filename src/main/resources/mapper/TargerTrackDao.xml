@@ -215,6 +215,12 @@
         WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId} AND TRACK_ID = #{trackId}
     </update>
 
+    <update id="deleteByVideoId">
+        update target_track_t
+        set DATA_STATUS = "D"
+        WHERE DATA_STATUS = "A" AND VIDEO_ID = #{videoId}
+    </update>
+
     <select id="queryTrack" resultType="com.tagging.entity.TargetTrackT">
         select *
         from target_track_t
