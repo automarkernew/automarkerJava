@@ -36,4 +36,7 @@ public interface ObjectTypeDao extends BaseDao<TargetTypeT> {
 
     LinkIdRsp queryByLinkId(@Param("linkId") String linkId);
 
+    TargetTypeT queryByTrackTypeIdAndTargetTypeId(@Param("trackTypeId") String trackTypeId,
+                                                  @Param("objectType") String objectType);
+
 }

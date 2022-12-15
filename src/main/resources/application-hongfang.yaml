@@ -39,6 +39,7 @@ minio:
   imgBuket: img
   motimgBuket: motimg
   txtBuket: txt
+  xmlPath: xml
   serverFilePath: /home/homefun/code/project/minio_server/server
 
 # yolo5

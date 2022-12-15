@@ -6,9 +6,12 @@ import com.tagging.dto.QuerySummaryRsp;
 import com.tagging.dto.videoInformation.*;
 import com.tagging.service.VideoInformationService;
 import com.tagging.utils.R;
-//import jdk.vm.ci.code.site.Mark;
+import com.tagging.utils.ZipUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestPart;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
@@ -71,9 +74,15 @@ public class VideoInformationController {
     }
 
     @RequestMapping("download")
-    public R download(@RequestParam("VideoId") String videoId, HttpServletResponse httpResponse) throws IOException {
-        String fileUrl = videoInformationService.download(videoId);
-        return minioController.getDownloadUrl(fileUrl);
+    public void download(@RequestBody Map<String, Object> req,
+                      HttpServletResponse response) throws IOException {
+        VideoInformationDownload videoInformationDownload = JSON.parseObject(JSON.toJSONString(req.get("VideoInformationDownload")), VideoInformationDownload.class);
+        String fileUrl = videoInformationService.download(videoInformationDownload.getVideoId());
+        response.setContentType("application/zip");
+        response.setCharacterEncoding("utf-8");
+        //xxx.zip是你压缩包文件名
+        response.setHeader("Content-Disposition", "attachment;filename=" + fileUrl);
+        ZipUtils.downloadZip(response, fileUrl);
     }
 
     @RequestMapping("queryShootPlace")

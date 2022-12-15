@@ -3,9 +3,15 @@ package com.tagging.service;
 import com.github.wujun234.uid.UidGenerator;
 import com.tagging.common.Constants;
 import com.tagging.controller.MinioController;
+import com.tagging.dao.mapper.FrameInformationDao;
+import com.tagging.dao.mapper.ObjectTypeDao;
+import com.tagging.dao.mapper.TargetTrackDao;
 import com.tagging.dao.mapper.VideoInformationDao;
 import com.tagging.dto.QuerySummaryRsp;
 import com.tagging.dto.videoInformation.*;
+import com.tagging.entity.FrameInformation;
+import com.tagging.entity.TargetTrackT;
+import com.tagging.entity.TargetTypeT;
 import com.tagging.entity.VideoInformation;
 import com.tagging.enums.DataStatusEnum;
 import com.tagging.enums.VideoInformation.IsMotedEnum;
@@ -20,15 +26,26 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import javax.annotation.Resource;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import javax.imageio.ImageIO;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.awt.image.BufferedImage;
+import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 import static com.tagging.utils.FileUtils.consumeInputStream;
 import static com.tagging.utils.FileUtils.copyDir;
@@ -38,6 +55,15 @@ import static com.tagging.utils.FileUtils.copyDir;
 public class VideoInformationService {
     @Resource
     VideoInformationDao videoInformationDao;
+
+    @Resource
+    FrameInformationDao frameInformationDao;
+
+    @Resource
+    TargetTrackDao targetTrackDao;
+
+    @Resource
+    ObjectTypeDao objectTypeDao;
 
     @Resource
     UidGenerator cachedUidGenerator;
@@ -50,6 +76,9 @@ public class VideoInformationService {
 
     @Value("${minio.videoBucket}")
     private String minioBucketName;
+
+    @Value("${minio.xmlPath}")
+    private String xml;
 
     @Value("${minio.serverFilePath}")
     private String serverFilePath;
@@ -329,9 +358,209 @@ public class VideoInformationService {
         videoInformationDao.updateByPrimaryKeySelective(videoInformation);
     }
 
+//    获取图片标签
+    public String getName(FrameInformation frameInformation){
+        TargetTrackT targetTrackT = targetTrackDao.queryByVideoIdAndTrackId(frameInformation.getVideoId(),
+                frameInformation.getTrackId());
+        TargetTypeT targetTypeT = objectTypeDao.queryByTrackTypeIdAndTargetTypeId(targetTrackT.getTrackTypeId(),
+                targetTrackT.getTargetTypeId());
+        if (targetTypeT == null){
+            return "undefine";
+        } else {
+            return targetTypeT.getObjectType() + "_" + targetTypeT.getObjectModel();
+        }
+    }
+
+//    初始化文件夹
+    public void dirInit(File dir){
+        if (!dir.isDirectory()) {
+            try {
+                dir.mkdir();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+//    清空文件夹
+    public void dirDelete(File dir){
+        File[] files = dir.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile()) {
+                    file.delete();
+                } else if (file.isDirectory()) {
+                    dirDelete(file);
+                    file.delete();
+                }
+            }
+        }
+    }
+
+//    生成图片xml
+    public void getXmlFile(List<FrameInformation> frameInformations,
+                           String xmlRootPath,
+                           Integer frame) {
+        try {
+            File xmlFile = new File(Paths.get(xmlRootPath , frame + ".xml").toUri());
+            // 读图
+            Path imagePath = Paths.get(minioLocalUrl, motimgBuket, frameInformations.get(0).getVideoId(), String.valueOf(frame) + ".jpg");
+            BufferedImage sourceImg = ImageIO.read(Files.newInputStream(imagePath));
+            // 创建解析器工厂
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder db = factory.newDocumentBuilder();
+            Document document = db.newDocument();
+            document.setXmlStandalone(true);
+            Element annotation = document.createElement("annotation");
+//            filename
+            Element filename = document.createElement("filename");
+            filename.setTextContent(String.valueOf(frameInformations.get(0).getFrame()) + ".jpg");
+//            size
+            Element size = document.createElement("size");
+//            width
+            Element width = document.createElement("width");
+            width.setTextContent(String.valueOf(sourceImg.getWidth()));
+            size.appendChild(width);
+//            height
+            Element height = document.createElement("height");
+            height.setTextContent(String.valueOf(sourceImg.getHeight()));
+            size.appendChild(height);
+//            depth
+            Element depth = document.createElement("depth");
+            depth.setTextContent(String.valueOf(sourceImg.getColorModel().getNumComponents()));
+            size.appendChild(depth);
+//            合并
+            annotation.appendChild(filename);
+            annotation.appendChild(size);
+//            object
+            for (FrameInformation frameInformation : frameInformations) {
+                Element object = document.createElement("object");
+                Element bndbox = document.createElement("bndbox");
+//                xmin
+                Element xmin = document.createElement("xmin");
+                xmin.setTextContent(frameInformation.getLeftUpperCornerAbscissa());
+                bndbox.appendChild(xmin);
+//                ymin
+                Element ymin = document.createElement("ymin");
+                ymin.setTextContent(frameInformation.getLeftUpperCornerOrdinate());
+                bndbox.appendChild(ymin);
+//                xmax
+                Element xmax = document.createElement("xmax");
+                xmax.setTextContent(frameInformation.getRightLowerQuarterAbscissa());
+                bndbox.appendChild(xmax);
+//                ymax
+                Element ymax = document.createElement("ymax");
+                ymax.setTextContent(frameInformation.getRightLowerQuarterOrdinate());
+                bndbox.appendChild(ymax);
+//                name
+                Element name = document.createElement("name");
+                name.setTextContent(getName(frameInformation));
+//                合并
+                object.appendChild(bndbox);
+                object.appendChild(name);
+                annotation.appendChild(object);
+            }
+//            生成xml
+            document.appendChild(annotation);
+            TransformerFactory tff = TransformerFactory.newInstance();
+            Transformer tf = tff.newTransformer();
+            tf.setOutputProperty(OutputKeys.INDENT, "yes");
+            tf.transform(new DOMSource(document), new StreamResult(xmlFile));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+//    下载
     public String download(String VideoId) throws IOException{
+//        获取视频信息
         VideoInformation videoInformation = videoInformationDao.queryByVideoId(VideoId);
-        return videoInformation.getVideoFileUrl();
+        if (!videoInformation.getIsMoted().equals("1")){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " 未标注");
+        }
+        if (!videoInformation.getIsTagged().equals("1")){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " 未跟踪");
+        }
+//        获取该视频的最大帧数
+        Integer frameMax = frameInformationDao.queryFrameMaxByVideoId(VideoId);
+//        循环生成xml文件
+        List<File> files = new ArrayList<>();
+//        初始化文件夹
+        File xmlRootDir = new File(Paths.get(minioLocalUrl, xml).toUri());
+        dirInit(xmlRootDir);
+        File xmlRootPath = new File(Paths.get(xmlRootDir.getPath(), VideoId).toUri());
+        dirInit(xmlRootPath);
+        dirDelete(xmlRootPath);
+
+        for (int i = 1; i <= frameMax; i++) {
+            List<FrameInformation> frameInformations = frameInformationDao.queryByFramesAndVideoId(VideoId, i);
+            if (frameInformations.isEmpty()){
+                throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " frame " + i + " null");
+            }
+            getXmlFile(frameInformations, String.valueOf(xmlRootPath), i);
+        }
+
+        File[] fileXml = (new File(Paths.get(minioLocalUrl, xml, VideoId).toUri())).listFiles();
+        File[] filePic = (new File(Paths.get(minioLocalUrl, motimgBuket, VideoId).toUri())).listFiles();
+        if (fileXml == null || filePic == null){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " fileXml or filePic " + " null");
+        }
+        File[] fileZip = Arrays.copyOf(fileXml, fileXml.length + filePic.length);
+        System.arraycopy(filePic, 0, fileZip, fileXml.length, filePic.length);
+        File zipFile = new File(Paths.get(minioLocalUrl, xml, VideoId, VideoId + ".zip").toUri());
+        zipFiles(fileZip, zipFile);
+//        return videoInformation.getVideoFileUrl();
+        if (!zipFile.exists()){
+            throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " zip not exit ");
+        }
+        return zipFile.getPath();
+    }
+
+    public static void zipFiles(File[] srcFiles, File zipFile) {
+        // 判断压缩后的文件存在不，不存在则创建
+        if (!zipFile.exists()) {
+            try {
+                zipFile.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        // 创建 FileOutputStream 对象
+        FileOutputStream fileOutputStream = null;
+        // 创建 ZipOutputStream
+        ZipOutputStream zipOutputStream = null;
+        // 创建 FileInputStream 对象
+        FileInputStream fileInputStream = null;
+
+        try {
+            // 实例化 FileOutputStream 对象
+            fileOutputStream = new FileOutputStream(zipFile);
+            // 实例化 ZipOutputStream 对象
+            zipOutputStream = new ZipOutputStream(fileOutputStream);
+            // 创建 ZipEntry 对象
+            ZipEntry zipEntry = null;
+            // 遍历源文件数组
+            for (int i = 0; i < srcFiles.length; i++) {
+                // 将源文件数组中的当前文件读入 FileInputStream 流中
+                fileInputStream = new FileInputStream(srcFiles[i]);
+                // 实例化 ZipEntry 对象，源文件数组中的当前文件
+                zipEntry = new ZipEntry(srcFiles[i].getName());
+                zipOutputStream.putNextEntry(zipEntry);
+                // 该变量记录每次真正读的字节个数
+                int len;
+                // 定义每次读取的字节数组
+                byte[] buffer = new byte[1024];
+                while ((len = fileInputStream.read(buffer)) > 0) {
+                    zipOutputStream.write(buffer, 0, len);
+                }
+            }
+            zipOutputStream.closeEntry();
+            zipOutputStream.close();
+            fileInputStream.close();
+            fileOutputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
