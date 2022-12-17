@@ -5,13 +5,13 @@ server:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql.szdx.svc.cluster.local:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://172.31.158.50:3306/test?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
     username: root
     password: Root123456
   servlet:
     multipart:
-      max-file-size: 1024MB
-      max-request-size: 1024MB
+      max-file-size: 10240MB
+      max-request-size: 10240MB
 # 配置mybatis
 mybatis:
   type-aliases-package: com.tagging.entity # entity 位置
@@ -30,7 +30,7 @@ logging:
 
 # minio
 minio:
-  url: http://192.168.159.11:34845
+  url: http://localhost:9000
   accessKey: minioadmin
   secretKey: minioadmin
   localUrl: /data
@@ -48,3 +48,4 @@ yolo5:
   localUrl: /app
   executeUrl: /root/miniconda3/envs/Auto/bin
   pythonName: ./python3.7
+

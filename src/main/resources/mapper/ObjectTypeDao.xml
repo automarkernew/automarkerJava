@@ -8,6 +8,12 @@
         where DATA_STATUS = "A"
         group by OBJECT_TYPE
     </select>
+
+    <select id="queryByTrackTypeIdAndTargetTypeId" resultType="com.tagging.entity.TargetTrackT">
+        select *
+        from target_type_t
+        where DATA_STATUS = "A" AND TARGET_TYPE_ID = #{objectType} AND TRACK_TYPE_ID = #{trackTypeId}
+    </select>
     
     <select id="queryModelByType" resultType="com.tagging.dto.ObjectType.ObjectTypeModelRsp">
         select OBJECT_MODEL as objectModel
