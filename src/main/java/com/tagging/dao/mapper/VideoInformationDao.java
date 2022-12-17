@@ -53,4 +53,5 @@ public interface VideoInformationDao extends BaseDao<VideoInformation> {
 
     public VideoLengthRsp queryVideoLength(@Param("videoId") String videoId);
 
+
 }

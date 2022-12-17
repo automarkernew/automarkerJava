@@ -362,6 +362,9 @@ public class VideoInformationService {
     public String getName(FrameInformation frameInformation){
         TargetTrackT targetTrackT = targetTrackDao.queryByVideoIdAndTrackId(frameInformation.getVideoId(),
                 frameInformation.getTrackId());
+        if(targetTrackT.getTrackTypeId()==null){
+            return "undefine";
+        }
         TargetTypeT targetTypeT = objectTypeDao.queryByTrackTypeIdAndTargetTypeId(targetTrackT.getTrackTypeId(),
                 targetTrackT.getTargetTypeId());
         if (targetTypeT == null){
@@ -400,11 +403,12 @@ public class VideoInformationService {
 //    生成图片xml
     public void getXmlFile(List<FrameInformation> frameInformations,
                            String xmlRootPath,
-                           Integer frame) {
+                           Integer frame,
+                           String videoId) {
         try {
             File xmlFile = new File(Paths.get(xmlRootPath , frame + ".xml").toUri());
             // 读图
-            Path imagePath = Paths.get(minioLocalUrl, motimgBuket, frameInformations.get(0).getVideoId(), String.valueOf(frame) + ".jpg");
+            Path imagePath = Paths.get(minioLocalUrl, motimgBuket, videoId, String.valueOf(frame) + ".jpg");
             BufferedImage sourceImg = ImageIO.read(Files.newInputStream(imagePath));
             // 创建解析器工厂
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -414,7 +418,7 @@ public class VideoInformationService {
             Element annotation = document.createElement("annotation");
 //            filename
             Element filename = document.createElement("filename");
-            filename.setTextContent(String.valueOf(frameInformations.get(0).getFrame()) + ".jpg");
+            filename.setTextContent(frame + ".jpg");
 //            size
             Element size = document.createElement("size");
 //            width
@@ -432,33 +436,35 @@ public class VideoInformationService {
 //            合并
             annotation.appendChild(filename);
             annotation.appendChild(size);
+            if (! frameInformations.isEmpty()) {
 //            object
-            for (FrameInformation frameInformation : frameInformations) {
-                Element object = document.createElement("object");
-                Element bndbox = document.createElement("bndbox");
+                for (FrameInformation frameInformation : frameInformations) {
+                    Element object = document.createElement("object");
+                    Element bndbox = document.createElement("bndbox");
 //                xmin
-                Element xmin = document.createElement("xmin");
-                xmin.setTextContent(frameInformation.getLeftUpperCornerAbscissa());
-                bndbox.appendChild(xmin);
+                    Element xmin = document.createElement("xmin");
+                    xmin.setTextContent(frameInformation.getLeftUpperCornerAbscissa());
+                    bndbox.appendChild(xmin);
 //                ymin
-                Element ymin = document.createElement("ymin");
-                ymin.setTextContent(frameInformation.getLeftUpperCornerOrdinate());
-                bndbox.appendChild(ymin);
+                    Element ymin = document.createElement("ymin");
+                    ymin.setTextContent(frameInformation.getLeftUpperCornerOrdinate());
+                    bndbox.appendChild(ymin);
 //                xmax
-                Element xmax = document.createElement("xmax");
-                xmax.setTextContent(frameInformation.getRightLowerQuarterAbscissa());
-                bndbox.appendChild(xmax);
+                    Element xmax = document.createElement("xmax");
+                    xmax.setTextContent(frameInformation.getRightLowerQuarterAbscissa());
+                    bndbox.appendChild(xmax);
 //                ymax
-                Element ymax = document.createElement("ymax");
-                ymax.setTextContent(frameInformation.getRightLowerQuarterOrdinate());
-                bndbox.appendChild(ymax);
+                    Element ymax = document.createElement("ymax");
+                    ymax.setTextContent(frameInformation.getRightLowerQuarterOrdinate());
+                    bndbox.appendChild(ymax);
 //                name
-                Element name = document.createElement("name");
-                name.setTextContent(getName(frameInformation));
+                    Element name = document.createElement("name");
+                    name.setTextContent(getName(frameInformation));
 //                合并
-                object.appendChild(bndbox);
-                object.appendChild(name);
-                annotation.appendChild(object);
+                    object.appendChild(bndbox);
+                    object.appendChild(name);
+                    annotation.appendChild(object);
+                }
             }
 //            生成xml
             document.appendChild(annotation);
@@ -482,7 +488,7 @@ public class VideoInformationService {
             throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " 未跟踪");
         }
 //        获取该视频的最大帧数
-        Integer frameMax = frameInformationDao.queryFrameMaxByVideoId(VideoId);
+        Integer frameMax = Integer.parseInt(videoInformationDao.queryVideoLength(VideoId).getLength()) + 1;
 //        循环生成xml文件
         List<File> files = new ArrayList<>();
 //        初始化文件夹
@@ -494,10 +500,7 @@ public class VideoInformationService {
 
         for (int i = 1; i <= frameMax; i++) {
             List<FrameInformation> frameInformations = frameInformationDao.queryByFramesAndVideoId(VideoId, i);
-            if (frameInformations.isEmpty()){
-                throw new CMSException(Constants.BUSINESS_EXCEPTION_CODE, VideoId + " frame " + i + " null");
-            }
-            getXmlFile(frameInformations, String.valueOf(xmlRootPath), i);
+            getXmlFile(frameInformations, String.valueOf(xmlRootPath), i, VideoId);
         }
 
         File[] fileXml = (new File(Paths.get(minioLocalUrl, xml, VideoId).toUri())).listFiles();

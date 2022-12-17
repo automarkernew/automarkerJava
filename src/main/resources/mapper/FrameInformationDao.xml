@@ -34,12 +34,6 @@
         ORDER BY TRACK_ID + 0 , FRAME DESC
     </select>
 
-    <select id = "queryFrameMaxByVideoId" resultType = "java.lang.Integer">
-        SELECT MAX(FRAME) AS frameMax
-        FROM frame_information
-        WHERE DATA_STATUS = 'A' AND VIDEO_ID = #{videoId}
-    </select>
-
     <update id="deleteByVideoId">
         update frame_information
         set DATA_STATUS = "D"

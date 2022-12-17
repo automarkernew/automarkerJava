@@ -4,9 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.tagging.dto.QueryPagingParamsReq;
 import com.tagging.dto.QuerySummaryRsp;
 import com.tagging.dto.videoInformation.*;
+import com.tagging.service.InfraredImageTaggingService;
 import com.tagging.service.VideoInformationService;
 import com.tagging.utils.R;
 import com.tagging.utils.ZipUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +30,8 @@ public class VideoInformationController {
 
     @Autowired
     MinioController minioController;
+
+    private static final Logger logger = LoggerFactory.getLogger(VideoInformationController.class);
 
     @RequestMapping("queryById")
     public R queryById(@RequestBody Map<String,Object> req){
@@ -83,6 +88,7 @@ public class VideoInformationController {
         //xxx.zip是你压缩包文件名
         response.setHeader("Content-Disposition", "attachment;filename=" + fileUrl);
         ZipUtils.downloadZip(response, fileUrl);
+        logger.info(fileUrl + "生成成功");
     }
 
     @RequestMapping("queryShootPlace")

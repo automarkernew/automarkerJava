@@ -9,7 +9,7 @@
         group by OBJECT_TYPE
     </select>
 
-    <select id="queryByTrackTypeIdAndTargetTypeId" resultType="com.tagging.entity.TargetTrackT">
+    <select id="queryByTrackTypeIdAndTargetTypeId" resultType="com.tagging.entity.TargetTypeT">
         select *
         from target_type_t
         where DATA_STATUS = "A" AND TARGET_TYPE_ID = #{objectType} AND TRACK_TYPE_ID = #{trackTypeId}

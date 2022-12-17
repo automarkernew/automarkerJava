@@ -20,8 +20,8 @@ public class ZipUtils {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if (file.exists()) {
-            file.delete();
-        }
+//        if (file.exists()) {
+//            file.delete();
+//        }
     }
 }

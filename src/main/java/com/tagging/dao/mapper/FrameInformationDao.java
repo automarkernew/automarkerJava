@@ -53,8 +53,6 @@ public interface FrameInformationDao extends BaseDao<FrameInformation> {
 
     void deleteByVideoId(@Param("videoId") String videoId);
 
-    public Integer queryFrameMaxByVideoId(@Param("videoId") String videoId);
-
     List<FrameInformation> queryByFramesAndVideoId(@Param("videoId") String videoId,
                                                    @Param("frame") Integer frame);
 
