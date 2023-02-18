@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.InputStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.zip.ZipFile;
 
 public class ZipUtils {
@@ -14,7 +13,7 @@ public class ZipUtils {
         File file = new File(path);
         try {
             ZipFile zipFile = new ZipFile(file);
-            InputStream fis = Files.newInputStream(Path.of((path)));
+            InputStream fis = Files.newInputStream(file.toPath());
             IOUtils.copy(fis, response.getOutputStream());
             fis.close();
         }catch (Exception e){

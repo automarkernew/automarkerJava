@@ -33,20 +33,20 @@ minio:
   url: http://localhost:9000
   accessKey: minioadmin
   secretKey: minioadmin
-  localUrl: /home/homefun/code/project/minio_server
+  localUrl: /home/homefun/code/auto/minio_server
   videoBucket: video
   mottxtBuket: mottxt
   imgBuket: img
   motimgBuket: motimg
   txtBuket: txt
   xmlPath: xml
-  serverFilePath: /home/homefun/code/project/minio_server/server
+  serverFilePath: /home/homefun/code/auto/minio_server/server
 
 # yolo5
 # local是yolo算法地址
 # execute是相应的python解释器地址
 yolo5:
-  localUrl: /home/homefun/code/project/auto_data_marker/auto_data_marker_python
+  localUrl: /home/homefun/code/auto/auto_data_marker_python
   executeUrl: /home/homefun/anaconda3/envs/Auto/bin
   pythonName: ./python
 
